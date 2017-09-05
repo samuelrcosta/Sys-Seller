@@ -26,14 +26,44 @@ Os requisitos iniciais e definidos em alto-nível estão descritos abaixo:
 
 ## Estrutura Analítica do Projeto
 
-## Equipe do Projeto
+### 1. Projeto
+#### 1.1. Planejamento
+##### 1.1.1. Abertura do Projeto
+##### 1.1.2. Gerenciamento de Processos
+#### 1.2. Análise
+##### 1.2.1. Levantamento de Requisitos
+##### 1.2.2. Validação de Requisitos
+##### 1.2.3. Especificação de Requisitos
+#### 1.3. Implementação
+##### 1.3.1. Front-End
+##### 1.3.2. Estruturação do Banco de Dados
+##### 1.3.3. Back-End
+#### 1.4. Testes
+##### 1.4.1. Teste Unitário
+##### 1.4.2. Teste de Caixa Preta
+#### 1.5. Implantação
+##### 1.5.1. Geração de Fontes
+##### 1.5.2. Geração de Scripts
+##### 1.5.3. Implantação do Ambiente de Produção
 
-## Premissas
+## Equipe do Projeto
+Os integrantes da equipe do projeto são:
+* [Samuel Rocha Costa](https://github.com/samuelrcosta)
+* [João Pedro Salgado](https://github.com/)
+* [Marcus Mittra](https://github.com/)
+* [Adryano Almeida](https://github.com/)
 
 ## Restrições
-
+Algumas restrições do projeto estão descritas abaixo:
+* O projeto deverá ser desenvolvido dentro do período de duração da disciplina de Construção de Software.
+* O projeto não deverá envolver ferramentas e recursos pagos (não gratuitos).
+* O projeto deve ser desenvolvido de acordo com as ferramentas e processos estabelecidos.
 ## Marcos
+Os marcos do projeto ainda serão definidos pela equipe.
 
 ## Riscos
+Os riscos iniciais identificados para o projeto são:
+* Dificuldade na utilização de ferramentas de Integração Contínua e de Testes Unitários.
 
 ## Orçamento do Projeto
+Esse projeto é institucional e não tem um orçamento para desenvolvimento, serão utilizados apenas o esforço e a dedicação.
