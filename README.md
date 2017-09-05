@@ -5,10 +5,7 @@ O Sys Seller é um sistema de vendas em desenvolvimento na disciplina de Constru
 * [Termo de Abertura](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Termo%20de%20Abertura.md)
 
 ## Integrantes
-[Samuel Rocha Costa](https://github.com/samuelrcosta)
-
-[João Pedro Salgado](https://github.com/)
-
-[Marcus Mittra](https://github.com/)
-
-[Adryano Almeida](https://github.com/)
+* [Samuel Rocha Costa](https://github.com/samuelrcosta)
+* [João Pedro Salgado](https://github.com/)
+* [Marcus Mittra](https://github.com/)
+* [Adryano Almeida](https://github.com/)
