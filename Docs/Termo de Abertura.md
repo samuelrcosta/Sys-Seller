@@ -59,7 +59,13 @@ Algumas restrições do projeto estão descritas abaixo:
 * O projeto não deverá envolver ferramentas e recursos pagos (não gratuitos).
 * O projeto deve ser desenvolvido de acordo com as ferramentas e processos estabelecidos.
 ## Marcos
-Os marcos do projeto ainda serão definidos pela equipe.
+Os marcos do projeto estão definidos abaixo:
+* Idealização da ideia
+* Planejamento Inicial
+* Backlog da primeira sprint
+* Primeira entrega
+* Testes de usuário
+* Finalização do projeto
 
 ## Riscos
 Os riscos iniciais identificados para o projeto são:
