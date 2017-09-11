@@ -53,6 +53,9 @@ Os integrantes da equipe do projeto são:
 * [Marcus Mittra](https://github.com/)
 * [Adryano Almeida](https://github.com/)
 
+## Tecnologias a serem empregadas
+O Sys Seller será um sistema desenvovido em php, utilizando de apoio frameworks como o Jquery e Bootstrap. Para execução dos testes e integração contínua serão utilizados o PHPUnit e o Shippable respectivaemente. A base de dados da aplicação será em Mysql, devido a praticidade de integração com hospedagens gratuitas.
+
 ## Restrições
 Algumas restrições do projeto estão descritas abaixo:
 * O projeto deverá ser desenvolvido dentro do período de duração da disciplina de Construção de Software.
