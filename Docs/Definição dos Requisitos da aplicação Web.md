@@ -1,71 +1,71 @@
-# Definição de Requisitos da aplicação Web - Sys-Seller	
+# Histórias de Usuário - Sys-Seller	
 
-## 1.0 Requisitos Funcionais do Sistema
+## 1. Eu como administrador desejo fazer o login no sistema usando um email e uma senha
+### Tipo do usuário
+Administrador
+### Ação
+Realizar o login no sistema
+### Motivo da Ação
+Para ter maior segurança, o sistema é acessado apenas com um Email e senha.
 
-### Req1 
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de realizar um cadastro de cliente de maneira eficiente e rápida. Para realizar um cadastro de cliente informações como nome, sobrenome, endereço, telefone, RG, e CPF devem ser descritas no formulário de cadastro. Todas as informações exigidas no cadastro são obrigatórias.
+## 2. Eu como administrador desejo realizar o cadastro dos meus produtos no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Cadastrar produto
+### Motivo da Ação
+Para indicar os produtos que foram vendidos em uma interação com o cliente, preciso dos produtos cadastrados no sistema.
 
-### Req2
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de realizar uma atualização nos dados cadastrais do cliente, caso necessário. Para atualizar os dados o vendedor deverá navegar no tópico “Atualizar Dados”.
+## 3. Eu como administrador desejo editar o cadastro dos meus produtos que estão no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Editar produto
+### Motivo da Ação
+Para manter os preços e os dados dos meus produtos atualizados, preciso editar e alterar as informações dos mesmos.
 
-### Req3
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de deletar um cadastro de cliente, caso necessário. Quando isso ocorrer uma mensagem alertando o cancelamento do cadastro deve ser informada.
+## 4. Eu como administrador desejo excluir produtos cadastrados no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Excluir produto
+### Motivo da Ação
+Caso algum produto saia de linha, preciso excluir ele da lista de produtos cadastrados.
 
-### Req4
-A aplicação web (Sys-Seller) deve conter um menu principal, que ajudará o vendedor a decidir qual página da aplicação ele quer navegar (Vendas, Cadastros Cliente/Produto).
+## 5. Eu como adminsitrador desejo visualizar os produtos cadastrados
+### Tipo do Usuário
+Administrador
+### Ação
+Visualizar lista de produtos
+### Motivo da ação
+Desejo visualizar uma lista que mostre todos os produtos que estão cadastrados no sistema.
 
-### Req5
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de cadastrar um produto de sua preferência. Para isso o vendedor deverá informar o nome do produto, descrição do produto e ID do produto.
+## 6. Eu como administrador desejo realizar o cadastro dos meus clientes no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Cadastrar cliente
+### Motivo da Ação
+Para indicar o cliente que está fazendo uma compra no meu estabelecimento, preciso cadastrar seus dados para manter informações sobre meus clientes.
 
-### Req6
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de registrar cada venda realizada. Cada venda realizada deverá conter o nome do produto, o nome do cliente, o valor do produto e informações da venda (horário, data, local).
+## 7. Eu como administrador desejo editar o cadastro dos meus clientes que estão no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Editar cliente
+### Motivo da Ação
+Caso algum cliente tenha os dados digitados errados, ou tenha alguma atualização de informação, preciso editar os dados de um cliente já cadastrado.
 
-### Req7
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de visualizar seus registros de vendas (vendas concluídas, vendas em aberto, vendas canceladas).
+## 8. Eu como administrador desejo excluir clientes cadastrados no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Excluir cliente
+### Motivo da Ação
+Caso algum cliente tenha seus dados cadastrados duas vezes por exemplo, seria necessário excluir o cadastro duplicado.
 
-### Req8
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de visualizar seus produtos disponíveis para a venda.
-
-### Req9
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de editar alguma informação de um produto já cadastrado na aplicação e salvar as respectivas modificações.
-
-### Req10
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de deletar um produto desejado. Para confirmar a exclusão do produto, uma mensagem deverá ser exibida, confirmando se o vendedor realmente deseja realizar aquela tarefa.
-
-### Req11 
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de filtrar seus produtos, de acordo com a categoria, preço ou descrição.
-
-### Req12 
-A aplicação web (Sys-Seller) deve possibilitar o vendedor de realizar uma pesquisa em seus produtos por nome.
-
-## 2.0 Requisitos Não - Funcionais do Sistema
-                 
-### Req1
-A aplicação Web deve assegurar que todas as informações foram corretamente exibidas para o vendedor.
-
-### Req2
-A aplicação Web que somente o administrador (vendedor), tenha acesso a aplicação.
-
-### Req3
-A aplicação Web deve garantir que a venda de produtos será destinada para apenas um cliente respectivamente.
-
-### Req4
-A aplicação Web deve garantir que em casos de falhas, erros no software, seu funcionamento normal será retornado em cerca de 24horas 
-
-### Req5
-A aplicação Web deve garantir que vários usuários simultaneamente estejam conectados na aplicação sem que ocorra erros.
-
-### Req6
-A aplicação Web deve garantir que o tempo de respostas não ultrapasse o esperado de 5 segundos para cada comando / tarefa realizada.
-
-### Req7
-Toda a documentação de construção e modificações realizadas na aplicação devem estar registradas para garantir um bom processo e possibilitar testes (caixa branca / caixa preta).
-
-### Req8
-A aplicação deverá ser operacionalizada em qualquer SO.
-
-### Req9
-A aplicação deverá ser de fácil entendimento e rápida resposta para o vendedor.
-
-### Req10
-A aplicação deverá ter um design responsivo, para ser navegado através de outra plataforma.
+## 4. Eu como administrador desejo realizar o manutenção de clientes no sistema
+## 5. Eu como administrador desejo visualizar os clientes cadastrados
+## 6. Eu como administrador desejo realizar a manutenção das vendas
+## 7. Eu como administrador desejo visualizar as vendas realizadas
+## 8. Eu como administrador desejo fazer o logoff do sistema
