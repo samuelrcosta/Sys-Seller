@@ -3,7 +3,7 @@ O Sys Seller é um sistema de vendas em desenvolvimento na disciplina de Constru
 
 ## Documentos do Projeto
 * [Termo de Abertura](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Termo%20de%20Abertura.md)
-* [Requisitos da Aplicação](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Defini%C3%A7%C3%A3o%20dos%20Requisitos%20da%20aplica%C3%A7%C3%A3o%20Web.md)
+* [Backlog do Produto](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Defini%C3%A7%C3%A3o%20dos%20Requisitos%20da%20aplica%C3%A7%C3%A3o%20Web.md)
 
 ## Integrantes
 * [Samuel Rocha Costa](https://github.com/samuelrcosta)
