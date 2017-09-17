@@ -1,4 +1,10 @@
 ### Backlog da primeira Sprint
-* Estruturação do Banco de Dados
-* Desenvolvimento do Layout da aplicação
-* Desenvolvimento do sistema de Login
+* Diagrama UML do usuário (2 pontos)
+* Criação do banco de dados de usuário (3 pontos)
+* Layout da página de login / logoff (8 pontos)
+* Codificação do Back-end da página de login (21 pontos)
+* Codificação do logoff (13 pontos)
+* Codificação dos testes unitários na classe usuário (13 pontos)
+* Execução dos testes unitários na classe usuário (3 pontos)
+* Teste de usuário na página de login / logoff (5 pontos)
+* Implantação da página de login / logoff no ambiente final (8 pontos)
