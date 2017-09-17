@@ -64,8 +64,51 @@ Excluir cliente
 ### Motivo da Ação
 Caso algum cliente tenha seus dados cadastrados duas vezes por exemplo, seria necessário excluir o cadastro duplicado.
 
-## 4. Eu como administrador desejo realizar o manutenção de clientes no sistema
-## 5. Eu como administrador desejo visualizar os clientes cadastrados
-## 6. Eu como administrador desejo realizar a manutenção das vendas
-## 7. Eu como administrador desejo visualizar as vendas realizadas
+## 9. Eu como administrador desejo visualizar os clientes cadastrados
+### Tipo do Usuário
+Administrador
+### Ação
+Visualizar lista de clientes
+### Motivo da Ação
+Para uma análise da base de clientes registrados, preciso de uma lista que mostre todos os clientes cadastrados no sistema.
+
+## 10. Eu como administrador desejo realizar o cadastro das minhas vendas no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Cadastrar venda
+### Motivo da Ação
+Para manter o histórico das vendas que acontecem no meu estabelecimento, preciso fazer o cadastro das mesmas.
+
+## 11. Eu como administrador desejo editar as vendas cadastradas no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Editar venda
+### Motivo da Ação
+Caso alguma venda seja registrada errada, ou algum produto seja devolvido após o cadastro, preciso editar a venda para atualizar as informações.
+
+## 12. Eu como administrador desejo excluir vendas cadastrados no sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Excluir venda
+### Motivo da Ação
+Caso algum cliente desista ou cancele a compra, preciso excluir a venda que foi cadastrada no sistema.
+
+
+## 13. Eu como administrador desejo visualizar as vendas cadastradas
+### Tipo do Usuário
+Administrador
+### Ação
+Visualizar lista de vendas
+### Motivo da Ação
+Para uma análise das vendas realizadas, preciso de uma lista que mostre todas as vendas cadastradas.
+
 ## 8. Eu como administrador desejo fazer o logoff do sistema
+### Tipo do Usuário
+Administrador
+### Ação
+Logoff
+### Motivo da Ação
+Para manter meus dados seguros após entrar no sistema, preciso fazer logoff no sistema quando o uso do sistema for finalizado.
