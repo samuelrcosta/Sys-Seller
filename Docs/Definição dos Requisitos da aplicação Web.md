@@ -105,7 +105,7 @@ Visualizar lista de vendas
 ### Motivo da Ação
 Para uma análise das vendas realizadas, preciso de uma lista que mostre todas as vendas cadastradas.
 
-## 8. Eu como administrador desejo fazer o logoff do sistema
+## 14. Eu como administrador desejo fazer o logoff do sistema
 ### Tipo do Usuário
 Administrador
 ### Ação
