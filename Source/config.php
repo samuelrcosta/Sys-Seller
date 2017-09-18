@@ -2,7 +2,7 @@
 require 'environment.php';
 $config = array();
 if(ENVIRONMENT == 'development'){
-    define("BASE_URL", 'http://localhost/sysseller');
+    define("BASE_URL", 'http://localhost/php/Sys-Seller/Source');
     $config['dbname'] = 'sysseller';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';
