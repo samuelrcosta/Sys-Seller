@@ -15,7 +15,7 @@ class Usuarios extends model{
 
     public function logOff(){
         unset($_SESSION['cLogin']);
-        header('Location:'.BASE_URL."/login");
+        return -1;
     }
 
     public function getDados($id){

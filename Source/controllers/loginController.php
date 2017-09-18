@@ -19,6 +19,8 @@ class loginController extends controller{
     }
     public function logout(){
         $u = new Usuarios();
-        $u->logOff();
+        if($u->logOff() == -1){
+            header('Location:'.BASE_URL."/login");
+        }
     }
 }

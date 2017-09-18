@@ -1,0 +1,14 @@
+<dataset>
+    <table name="usuarios">
+        <column>id</column>
+        <column>nome</column>
+        <column>email</column>
+        <column>senha</column>
+        <row>
+            <value>1</value>
+            <value>Administrador</value>
+            <value>adm@adm.com.br</value>
+            <value>123</value>
+        </row>
+    </table>
+</dataset>
