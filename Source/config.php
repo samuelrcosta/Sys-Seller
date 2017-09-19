@@ -8,11 +8,11 @@ if(ENVIRONMENT == 'development'){
     $config['dbuser'] = 'root';
     $config['dbpass'] = 'root';
 } else{
-    define("BASE_URL", 'http://sysseller.com/');
-    $config['dbname'] = 'sysseller';
+    define("BASE_URL", 'https://smrc.000webhostapp.com');
+    $config['dbname'] = 'id2966524_sysseller';
     $config['host'] = 'localhost';
-    $config['dbuser'] = 'root';
-    $config['dbpass'] = 'root';
+    $config['dbuser'] = 'id2966524_admsysseller';
+    $config['dbpass'] = 'root123';
 }
 
 global $db;

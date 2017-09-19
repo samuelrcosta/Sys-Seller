@@ -54,7 +54,8 @@ Os integrantes da equipe do projeto são:
 * [Adryano Almeida](https://github.com/)
 
 ## Tecnologias a serem empregadas
-O Sys Seller será um sistema desenvovido em php, utilizando de apoio frameworks como o Jquery e Bootstrap. Para execução dos testes e integração contínua serão utilizados o PHPUnit e o Shippable respectivaemente. A base de dados da aplicação será em Mysql, devido a praticidade de integração com hospedagens gratuitas.
+O Sys Seller será um sistema desenvovido em php, utilizando de apoio frameworks como o Jquery e Bootstrap. Para execução dos testes e integração contínua serão utilizados o PHPUnit e o Shippable respectivaemente. A base de dados da aplicação será em Mysql, devido a praticidade de integração com hospedagens gratuitas. Para que o software seja acessível em outros computadores, é necessário hospedar o mesmo em algum servidor Web, foi definido que será utilizado o [000WebHost](https://www.000webhost.com) por conta do serviço adequado a necessidade do projeto e também por oferecer uma opção gratuita.  
+Para acessar a página em que o software está hospedado basta acessar [https://smrc.000webhostapp.com/](https://smrc.000webhostapp.com/).
 
 ## Restrições
 Algumas restrições do projeto estão descritas abaixo:
