@@ -9,3 +9,4 @@
 | 6 | Executar testes de integração         | Os testes devem passar 100% com zero erros                  |
 | 7 | Manter Trello atualizado              | Trello deve estar de acordo com o status do desenvolvimento |
 | 8 | Executar testes de usuário            | O software deve estar funcionando como esperado             |
+| 9 | Implantar no ambiente de produção | O ambiente de produção deve estar em dia com o código produzido |
