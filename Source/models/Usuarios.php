@@ -19,7 +19,7 @@ class Usuarios extends model{
     public function logIn($email, $senha){
         $sql = "SELECT id FROM usuarios WHERE email = ? AND senha = ?";
         $sql = $this->db->prepare($sql);
-        $sql->execute(array($email, ,md5($senha)));
+        $sql->execute(array($email, md5($senha)));
         $sql = $sql->fetch(PDO::FETCH_ASSOC);
         if($sql && count($sql)){
             $_SESSION['cLogin'] = $sql['id'];
