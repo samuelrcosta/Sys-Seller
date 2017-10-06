@@ -1,5 +1,16 @@
 <?php
+/**
+ * This classe is used as core for rewriting the route as an array.
+ *
+ * @author  samuelrcosta
+ * @version 0.1.0, 09/18/2017
+ * @since   0.1
+ */
 class Core{
+    /**
+     * This method routes the user for the selected controller
+     * in the correct function and parameters.
+     */
     public function run(){
         $url = '/';
         $params = array();

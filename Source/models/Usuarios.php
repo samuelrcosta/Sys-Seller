@@ -14,7 +14,7 @@ class Usuarios extends model{
      *
      * @param   $email    The email registered for the account.
      * @param   $senha    The current password.
-     * @return  A positive Integer for the user ID, or -1 for 'user not found'.
+     * @return  A positive  Integer for the user ID, or -1 for 'user not found'.
      */
     public function logIn($email, $senha){
         $sql = "SELECT id FROM usuarios WHERE email = ? AND senha = ?";
