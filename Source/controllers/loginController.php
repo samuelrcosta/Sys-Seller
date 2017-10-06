@@ -1,5 +1,16 @@
 <?php
+/**
+ * This class is the Controller of Login.
+ *
+ * @author  samuelrcosta
+ * @version 0.1.0, 09/18/2017
+ * @since   0.1
+ */
 class loginController extends controller{
+    
+    /**
+     * This function handles Login and redirects to Index page.
+     */
     public function index(){
         $dados = array();
         $dados['titulo'] = 'Faça o login';
@@ -17,6 +28,10 @@ class loginController extends controller{
         }
         $this->loadTemplate('login', $dados);
     }
+    
+    /**
+     * This function handles logout, redirecting to Login page.
+     */
     public function logout(){
         $u = new Usuarios();
         if($u->logOff() == -1){
