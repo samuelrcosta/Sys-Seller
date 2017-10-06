@@ -14,5 +14,5 @@ Para acesso ao software Sys Seller em produção, [clique aqui](https://smrc.000
 ## Integrantes
 * [Samuel Rocha Costa](https://github.com/samuelrcosta)
 * [João Pedro Salgado](https://github.com/)
-* [Marcus Mittra](https://github.com/)
+* [Marcus Mitra](https://github.com/MitraTheAngrod)
 * [Adryano Almeida](https://github.com/)
