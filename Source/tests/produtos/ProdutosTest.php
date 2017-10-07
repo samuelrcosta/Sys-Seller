@@ -57,7 +57,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
         $sql = "SELECT * FROM produtos ORDER BY desc";
         $sql = $this->db->prepare($sql);
-        $sql->executar(array($codigo, $nome, $categoria, $descricao, $preco));
+        $sql->executar();
         $result = $sql->fetch();
         $this->assertEquals($codigo, "456");
         $this->assertEquals($nome, 'Segundo Teste');
