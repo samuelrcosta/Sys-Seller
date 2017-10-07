@@ -6,6 +6,7 @@
         <column>categoria</column>
         <column>descricao</column>
         <column>preco</column>
+        <column>status_interno</column>
         <row>
             <value>1</value>
             <value>Teste</value>
@@ -13,6 +14,7 @@
             <value>Enxovais</value>
             <value>Produto de Qualidade</value>
             <value>20.50</value>
+            <value>1</value>
         </row>
     </table>
 </dataset>

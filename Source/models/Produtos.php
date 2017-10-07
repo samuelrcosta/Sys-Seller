@@ -28,9 +28,9 @@ class Produtos extends model{
      * @return  An array containing all data retrieved.
      */
     public function getProdutos(){
-        $sql = "SELECT * FROM produtos";
+        $sql = "SELECT * FROM produtos WHERE status_interno = ?";
         $sql = $this->db->prepare($sql);
-        $sql->execute();
+        $sql->execute(array(1));
         $sql = $sql->fetchAll();
         return $sql;
     }
@@ -46,9 +46,9 @@ class Produtos extends model{
      * @param   $preco      A float for the product price.
      */
     public function cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco){
-        $sql = "INSERT INTO produtos (codigo, nome, categoria, descricao, preco) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produtos (codigo, nome, categoria, descricao, preco, status_interno) VALUES (?, ?, ?, ?, ?, ?)";
         $sql = $this->db->prepare($sql);
-        $sql->execute(array($codigo, $nome, $categoria, $descricao, $preco));
+        $sql->execute(array($codigo, $nome, $categoria, $descricao, $preco, 1));
     }
     
     /**
@@ -68,14 +68,14 @@ class Produtos extends model{
     }
     
     /**
-     * This function delete a product in database by using it's ID.
+     * This function disable a product in database by using it's ID.
      *
      * @param   $id     A integer for the product ID.
      */
     public function excluirProduto($id){
-        $sql = "DELETE FROM produtos WHERE id = ?";
+        $sql = "UPDATE produtos SET status_interno = ? WHERE id = ?";
         $sql = $this->db->prepare($sql);
-        $sql->execute(array($id));
+        $sql->execute(array(2, $id));
     }
 }
 ?>

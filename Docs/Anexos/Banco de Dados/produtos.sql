@@ -30,7 +30,8 @@ CREATE TABLE `produtos` (
   `nome` varchar(150) NOT NULL,
   `categoria` varchar(150) DEFAULT NULL,
   `descricao` text,
-  `preco` double NOT NULL
+  `preco` double NOT NULL,
+  `status_interno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

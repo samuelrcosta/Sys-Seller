@@ -39,6 +39,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Enxovais', $result[0]['categoria']);
         $this->assertEquals('Produto de Qualidade', $result[0]['descricao']);
         $this->assertEquals(20.5, $result[0]['preco']);
+        $this->assertEquals(1, $result[0]['status_interno']);
     }
 
     public function testCadastrarProduto(){
@@ -63,6 +64,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals($nome, $result['nome']);
         $this->assertEquals($descricao, $result['descricao']);
         $this->assertEquals($preco, $result['preco']);
+        $this->assertEquals(1, $result['status_interno']);
     }
 
     public function testEditarProduto(){
@@ -89,6 +91,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals($nome, $result['nome']);
         $this->assertEquals($descricao, $result['descricao']);
         $this->assertEquals($preco, $result['preco']);
+        $this->assertEquals(1, $result['status_interno']);
     }
 
     public function testExcluirProduto(){
@@ -105,7 +108,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute(array($id));
         $result = $sql->fetch();
-        $this->assertEmpty($result);
+        $this->assertEquals(2, $result['status_interno']);
     }
 
     /**

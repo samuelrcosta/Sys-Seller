@@ -38,4 +38,40 @@ class produtosController extends controller{
         );
         $this->loadTemplate('CadastrarProduto', $dados);
     }
+
+    public function editar($id){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header('Location:'.BASE_URL."/login");
+        }
+        $p = new Produtos();
+        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['preco']) && !empty($_POST['preco'])){
+            $codigo = addslashes($_POST['codigo']);
+            $nome = addslashes($_POST['nome']);
+            $categoria = addslashes($_POST['categoria']);
+            $descricao = addslashes($_POST['descricao']);
+            $preco = addslashes(str_replace(",", ".", str_replace(".", "", $_POST['preco'])));
+            $p->editarProduto(base64_decode(base64_decode(addslashes($id))), $codigo, $nome, $categoria, $descricao, $preco);
+            header("Location: ".BASE_URL."/produtos");
+        }
+        $u = new Usuarios();
+        $dados = $u->getDados($_SESSION['cLogin']);
+        $produto = $p->getProduto(base64_decode(base64_decode(addslashes($id))));
+        $dados = array(
+            'titulo' => 'Editar Produto',
+            'nome' => $dados['nome'],
+            'produto' => $produto
+        );
+        $this->loadTemplate('EditarProduto', $dados);
+    }
+
+    public function excluir($id){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header('Location:'.BASE_URL."/login");
+        }
+        $p = new Produtos();
+        $u = new Usuarios();
+        $dados = $u->getDados($_SESSION['cLogin']);
+        $p->excluirProduto(base64_decode(base64_decode(addslashes($id))));
+        header("Location: ".BASE_URL."/produtos");
+    }
 }
