@@ -54,7 +54,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $descricao = "Produtos com foco em qualidade";
         $preco = 123.50;
 
-        $p->cadastrarProduto("456", "Segundo Teste", "Gadgets", "Produtos com foco em qualidade", 123.50);
+        $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
         $sql = "SELECT * FROM produtos ORDER BY desc";
         $sql - $this->db->prepare($sql);
         $sql->executar(array($codigo, $nome, $categoria, $descricao, $preco));
