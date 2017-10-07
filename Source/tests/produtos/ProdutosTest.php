@@ -73,7 +73,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::sysseller:');
-            $db->exec('CREATE TABLE `usuarios` (`id` int(11) NOT NULL, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(150) NOT NULL); CREATE TABLE `produtos` (`id` int(11) NOT NULL AUTO_INCREMENT, `codigo` varchar(100) DEFAULT NULL, `nome` varchar(150) NOT NULL, `categoria` varchar(150) DEFAULT NULL, `descricao` text, `preco` double NOT NULL)');
+            $db->exec('CREATE TABLE `produtos` (`id` int(11) NOT NULL AUTO_INCREMENT, `codigo` varchar(100) DEFAULT NULL, `nome` varchar(150) NOT NULL, `categoria` varchar(150) DEFAULT NULL, `descricao` text, `preco` double NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 
