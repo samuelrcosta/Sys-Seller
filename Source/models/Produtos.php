@@ -46,7 +46,7 @@ class Produtos extends model{
      * @param   $preco      A float for the product price.
      */
     public function cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco){
-        $sql = "INSERT INTO produtos SET codigo = ?, nome = ?, categoria = ?, descricao = ?, preco = ?";
+        $sql = "INSERT INTO produtos [codigo, nome, categoria, descricao, preco)] VALUES (?, ?, ?, ?, ?)";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($codigo, $nome, $categoria, $descricao, $preco));
     }
