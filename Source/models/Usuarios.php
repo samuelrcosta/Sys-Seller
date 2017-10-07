@@ -32,11 +32,9 @@ class Usuarios extends model{
     /**
      * Function used to unregister the user in the session.
      *
-     * @return Always return -1.
      */
     public function logOff(){
-        unset($_SESSION['cLogin']);
-        return -1;
+        $_SESSION['cLogin'] = "";
     }
 
     /**

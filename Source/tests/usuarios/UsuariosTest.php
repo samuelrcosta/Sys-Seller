@@ -31,8 +31,8 @@ final class UsuariosTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $conn;
         $_SESSION['cLogin'] = '1';
         $u = new Usuarios();
-        $result = $u->logOff();
-        $this->assertEquals('-1', $result);
+        $u->logOff();
+        $this->assertEquals('', $_SESSION['cLogin']);
     }
 
     public function testGetDados(){
