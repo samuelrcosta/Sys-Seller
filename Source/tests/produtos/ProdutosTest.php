@@ -22,7 +22,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Teste', $result['codigo']);
         $this->assertEquals('Enxovais', $result['categoria']);
         $this->assertEquals('Produto de Qualidade', $result['descricao']);
-        $this->assertEquals('preco', $result['preco']);
+        $this->assertEquals(20.5, $result['preco']);
 
     }
 
@@ -38,7 +38,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Teste', $result[0]['codigo']);
         $this->assertEquals('Enxovais', $result[0]['categoria']);
         $this->assertEquals('Produto de Qualidade', $result[0]['descricao']);
-        $this->assertEquals('preco', $result[0]['preco']);
+        $this->assertEquals(20.5, $result[0]['preco']);
     }
 
     public function testCadastrarProduto(){
@@ -56,7 +56,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
 
         $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
         $sql = "SELECT * FROM produtos ORDER BY desc";
-        $sql - $this->db->prepare($sql);
+        $sql = $this->db->prepare($sql);
         $sql->executar(array($codigo, $nome, $categoria, $descricao, $preco));
         $result = $sql->fetch();
         $this->assertEquals($codigo, "456");
