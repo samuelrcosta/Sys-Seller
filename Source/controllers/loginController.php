@@ -34,6 +34,7 @@ class loginController extends controller{
      */
     public function logout(){
         $u = new Usuarios();
+        $u->logOff();
         if($_SESSION['cLogin'] == ""){
             header('Location:'.BASE_URL."/login");
         }

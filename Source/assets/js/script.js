@@ -50,20 +50,20 @@ function validaForm(){
 
 function validaEmail(text) {
     usuario = text.substring(0, text.indexOf("@"));
-    dominio = text.substring(text.indexOf("@")+ 1, text.length);
+    dominio = text.substring(text.indexOf("@") + 1, text.length);
 
-    if ((usuario.length >=1) &&
-        (dominio.length >=3) &&
-        (usuario.search("@")==-1) &&
-        (dominio.search("@")==-1) &&
-        (usuario.search(" ")==-1) &&
-        (dominio.search(" ")==-1) &&
-        (dominio.search(".")!=-1) &&
-        (dominio.indexOf(".") >=1)&&
+    if ((usuario.length >= 1) &&
+        (dominio.length >= 3) &&
+        (usuario.search("@") == -1) &&
+        (dominio.search("@") == -1) &&
+        (usuario.search(" ") == -1) &&
+        (dominio.search(" ") == -1) &&
+        (dominio.search(".") != -1) &&
+        (dominio.indexOf(".") >= 1) &&
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
         return 0;
     }
-    else{
+    else {
         return -1;
     }
 }

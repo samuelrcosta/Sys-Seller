@@ -22,7 +22,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Teste', $result['codigo']);
         $this->assertEquals('Enxovais', $result['categoria']);
         $this->assertEquals('Produto de Qualidade', $result['descricao']);
-        $this->assertEquals('preco', $result['preco']);
+        $this->assertEquals(20.5, $result['preco']);
 
     }
 
@@ -38,7 +38,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals('Teste', $result[0]['codigo']);
         $this->assertEquals('Enxovais', $result[0]['categoria']);
         $this->assertEquals('Produto de Qualidade', $result[0]['descricao']);
-        $this->assertEquals('preco', $result[0]['preco']);
+        $this->assertEquals(20.5, $result[0]['preco']);
     }
 
     public function testCadastrarProduto(){
@@ -54,15 +54,58 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $descricao = "Produtos com foco em qualidade";
         $preco = 123.50;
 
-        $p->cadastrarProduto("456", "Segundo Teste", "Gadgets", "Produtos com foco em qualidade", 123.50);
-        $sql = "SELECT * FROM produtos ORDER BY desc";
-        $sql - $this->db->prepare($sql);
-        $sql->executar(array($codigo, $nome, $categoria, $descricao, $preco));
+        $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
+        $sql = "SELECT * FROM produtos ORDER BY id desc";
+        $sql = $GLOBALS['db']->prepare($sql);
+        $sql->execute();
         $result = $sql->fetch();
-        $this->assertEquals($codigo, "456");
-        $this->assertEquals($nome, 'Segundo Teste');
-        $this->assertEquals($descricao, "Produtos com foco em qualidade");
+        $this->assertEquals($codigo, $result['codigo']);
+        $this->assertEquals($nome, $result['nome']);
+        $this->assertEquals($descricao, $result['descricao']);
         $this->assertEquals($preco, $result['preco']);
+    }
+
+    public function testEditarProduto(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $p = new Produtos();
+
+        $id = 1;
+        $codigo = "456";
+        $nome = "Segundo Teste";
+        $categoria = "Gadgets";
+        $descricao = "Produtos com foco em qualidade";
+        $preco = 123.50;
+
+        $p->editarProduto($id, $codigo, $nome, $categoria, $descricao, $preco);
+        $sql = "SELECT * FROM produtos WHERE id = ?";
+        $sql = $GLOBALS['db']->prepare($sql);
+        $sql->execute(array($id));
+        $result = $sql->fetch();
+        $this->assertEquals($id, $result['id']);
+        $this->assertEquals($codigo, $result['codigo']);
+        $this->assertEquals($nome, $result['nome']);
+        $this->assertEquals($descricao, $result['descricao']);
+        $this->assertEquals($preco, $result['preco']);
+    }
+
+    public function testExcluirProduto(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+
+        $p = new Produtos();
+
+        $id = 1;
+
+        $p->excluirProduto($id);
+        $sql = "SELECT * FROM produtos WHERE id = ?";
+        $sql = $GLOBALS['db']->prepare($sql);
+        $sql->execute(array($id));
+        $result = $sql->fetch();
+        $this->assertEmpty($result);
     }
 
     /**
@@ -73,7 +116,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::sysseller:');
-            $db->exec('CREATE TABLE `usuarios` (`id` int(11) NOT NULL, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(150) NOT NULL); ');
+            $db->exec('CREATE TABLE `produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `codigo` varchar(100) DEFAULT NULL, `nome` varchar(150) NOT NULL, `categoria` varchar(150) DEFAULT NULL, `descricao` text, `preco` double NOT NULL) ');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 

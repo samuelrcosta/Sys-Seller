@@ -16,4 +16,3 @@
         ?>
         <input type="submit" value="Entrar" class="btn btn-default" style="cursor: pointer">
     </form>
-</div>
