@@ -1,0 +1,30 @@
+<dataset>
+    <table name="usuarios">
+        <column>id</column>
+        <column>nome</column>
+        <column>email</column>
+        <column>senha</column>
+        <row>
+            <value>1</value>
+            <value>Administrador</value>
+            <value>adm@adm.com.br</value>
+            <value>202cb962ac59075b964b07152d234b70</value>
+        </row>
+    </table>
+    <table name="produtos">
+        <column>id</column>
+        <column>codigo</column>
+        <column>nome</column>
+        <column>categoria</column>
+        <column>descricao</column>
+        <column>preco</column>
+        <row>
+            <value>1</value>
+            <value>Teste</value>
+            <value>Nome Teste</value>
+            <value>Exovais</value>
+            <value>Produto de Qualidade</value>
+            <value>20.50</value>
+        </row>
+    </table>
+</dataset>
