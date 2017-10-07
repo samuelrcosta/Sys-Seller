@@ -55,7 +55,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $preco = 123.50;
 
         $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
-        $sql = "SELECT * FROM produtos ORDER BY desc";
+        $sql = "SELECT * FROM produtos ORDER BY id desc";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute();
         $result = $sql->fetch();
