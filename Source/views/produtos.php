@@ -1,5 +1,5 @@
 <div class="Container">
-    <a style="margin-top: 20px;margin-bottom: 20px" class="btn btn-success" href='<?php echo BASE_URL ?>/produtos/cadastrar/'>+ Cadastrar Produto</a>
+    <a style="margin-top: 20px;margin-bottom: 20px; float: right;" class="btn btn-success" href='<?php echo BASE_URL ?>/produtos/cadastrar/'>Cadastrar Produto</a>
     <table class="table table-bordered table-tripped">
         <thead>
             <tr>
@@ -14,12 +14,12 @@
         <tbody>
             <?php foreach ($produtos as $produto):?>
             <tr>
-                <th><?php echo $produto['codigo'] ?></th>
-                <th><?php echo $produto['nome'] ?></th>
-                <th><?php echo $produto['categoria'] ?></th>
-                <th><pre style="margin-bottom: 0"><?php echo $produto['descricao'] ?></pre></th>
-                <th>R$ <?php echo str_replace(".", ",", $produto['preco'])?></th>
-                <th><a class="btn btn-info" href='<?php echo BASE_URL ?>/produtos/editar/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exProduto()">Excluir</button></th>
+                <td><?php echo $produto['codigo'] ?></td>
+                <td><?php echo $produto['nome'] ?></td>
+                <td><?php echo $produto['categoria'] ?></td>
+                <td><pre style="margin-bottom: 0"><?php echo $produto['descricao'] ?></pre></td>
+                <td>R$ <?php echo str_replace(".", ",", $produto['preco'])?></td>
+                <td><a class="btn btn-info" href='<?php echo BASE_URL ?>/produtos/editar/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exProduto()">Excluir</button></td>
             </tr>
             <?php endforeach;?>
         </tbody>
