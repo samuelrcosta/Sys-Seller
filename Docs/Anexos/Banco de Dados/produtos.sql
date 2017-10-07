@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Out-2017 às 20:57
--- Versão do servidor: 10.1.13-MariaDB
+-- Generation Time: 07-Out-2017 Ã s 06:20
+-- VersÃ£o do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,7 +31,8 @@ CREATE TABLE `produtos` (
   `codigo` varchar(100) DEFAULT NULL,
   `nome` varchar(150) NOT NULL,
   `categoria` varchar(150) DEFAULT NULL,
-  `descricao` text
+  `descricao` text,
+  `preco` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
