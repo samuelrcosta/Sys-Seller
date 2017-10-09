@@ -1,5 +1,16 @@
 <?php
+/**
+ * This class is the Controller of the Products.
+ *
+ * @author  samuelrcosta
+ * @version 0.2.0, 10/07/2017
+ * @since   0.2
+ */
 class produtosController extends controller{
+    /**
+     * This function verifies if the user is logged in.
+     * If so, it shows a list of registered products.
+     */
     public function index(){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header('Location:'.BASE_URL."/login");
@@ -16,6 +27,11 @@ class produtosController extends controller{
         $this->loadTemplate('produtos', $dados);
     }
 
+    /**
+     * This function verifies if the user is logged in.
+     * If so, the user can register a product.
+     * After registering a product, it stores the product details in database.
+     */
     public function cadastrar(){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header('Location:'.BASE_URL."/login");
@@ -39,6 +55,11 @@ class produtosController extends controller{
         $this->loadTemplate('CadastrarProduto', $dados);
     }
 
+    /**
+     * This function verifies if the user is logged in.
+     * If so, the user can edit a product.
+     * After editing a product, it updates the database.
+     */
     public function editar($id){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header('Location:'.BASE_URL."/login");
@@ -64,6 +85,11 @@ class produtosController extends controller{
         $this->loadTemplate('EditarProduto', $dados);
     }
 
+    /**
+     * This function verifies if the user is logged in.
+     * If so, the user can delete a product.
+     * After deleting a product, it updates the database.
+     */
     public function excluir($id){
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header('Location:'.BASE_URL."/login");
