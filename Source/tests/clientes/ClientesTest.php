@@ -99,7 +99,7 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
 
         $c = new Clientes();
 
-        $id = 2;
+        $id = 1;
         $nome = "Terceiro Teste";
         $cpf_cnpj = "555.555.555-22";
         $endereco = "Rua das Acácias";
