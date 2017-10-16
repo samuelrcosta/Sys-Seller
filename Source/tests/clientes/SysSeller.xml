@@ -1,0 +1,32 @@
+<dataset>
+    <table name="clientes">
+        <column>id</column>
+        <column>nome</column>
+        <column>cpf_cnpj</column>
+        <column>endereco</column>
+        <column>bairro</column>
+        <column>cep</column>
+        <column>cidade</column>
+        <column>estado</column>
+        <column>tipo_pessoa</column>
+        <column>telefone</column>
+        <column>celular</column>
+        <column>email</column>
+        <column>status_interno</column>
+        <row>
+            <value>1</value>
+            <value>Nome Teste</value>
+            <value>000.111.222-33</value>
+            <value>Rua dos testes N 999</value>
+            <value>Setor dos testes</value>
+            <value>99999-999</value>
+            <value>Testolandia</value>
+            <value>Goias</value>
+            <value>PF</value>
+            <value>(62) 3344-5566</value>
+            <value>(62) 98877-6655</value>
+            <value>teste@adm.com.br</value>
+            <value>1</value>
+        </row>
+    </table>
+</dataset>
