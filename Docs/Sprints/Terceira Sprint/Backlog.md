@@ -1,13 +1,13 @@
 ### Backlog da terceira Sprint
-* Diagrama UML dos clientes
-* Estruturação do Banco de Dados de clientes
-* Codificação dos testes unitários de clientes
-* Front - end da visualização da lista de clientes
-* Front - end de cadastro de clientes
-* Front - end da edição de clientes
-* Back - end da visualização da lista de clientes
-* Back - end do cadastro de clientes
-* Back - end da edição de clientes
-* Back - end da exclusão de clientes
-* Teste de usuário dos clientes
-* Transferência para o ambiente de produção
+* Diagrama UML dos clientes (5 pontos)
+* Estruturação do Banco de Dados de clientes (8 pontos)
+* Codificação dos testes unitários de clientes (13 pontos)
+* Front - end da visualização da lista de clientes (13 pontos)
+* Front - end de cadastro de clientes (13 pontos)
+* Front - end da edição de clientes (8 pontos)
+* Back - end da visualização da lista de clientes (8 pontos)
+* Back - end do cadastro de clientes (8 pontos)
+* Back - end da edição de clientes (5 pontos)
+* Back - end da exclusão de clientes (5 pontos)
+* Teste de usuário dos clientes (8 pontos)
+* Transferência para o ambiente de produção (5 pontos)
