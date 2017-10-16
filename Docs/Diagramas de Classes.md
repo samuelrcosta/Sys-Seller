@@ -15,4 +15,4 @@ O Digrama da classe produtos está representado abaixo:
 
 ## Classe Clientes
 O Digrama da classe clientes está representado abaixo:
-![diagrama de clientes](https://user-images.githubusercontent.com/19656573/31632459-c1c9b8a2-b29b-11e7-9d90-32102c7ecb3b.jpg)
+![diagrama de clientes](https://user-images.githubusercontent.com/19656573/31636540-a1989554-b2a9-11e7-8a8f-c142d3e6815d.jpg)
