@@ -12,3 +12,7 @@ Senha: 123
 ## Classe Produtos
 O Digrama da classe produtos está representado abaixo:
 ![diagrama de classes - produtos](https://user-images.githubusercontent.com/19656573/31304697-d452fa74-aafd-11e7-8517-4454498227b4.jpg)
+
+## Classe Clientes
+O Digrama da classe clientes está representado abaixo:
+![diagrama de clientes](https://user-images.githubusercontent.com/19656573/31636540-a1989554-b2a9-11e7-8a8f-c142d3e6815d.jpg)

@@ -7,6 +7,10 @@ O Sys Seller é um sistema de vendas em desenvolvimento na disciplina de Constru
 ## Acesso ao Software
 Para acesso ao software Sys Seller em produção, [clique aqui](https://smrc.000webhostapp.com/)
 
+### Processo de Desenvolvimento
+Para o desenvolvimento da aplicação é utilizado o método ágil Scrum, aliado ao trello para gerenciamento das tarefas.  
+Para acessar o quadro do trello [clique aqui](https://trello.com/b/PHFJUiiI).
+
 ## Documentos do Projeto
 * [Termo de Abertura](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Termo%20de%20Abertura.md)
 * [Backlog do Produto](https://github.com/samuelrcosta/Sys-Seller/blob/master/Docs/Defini%C3%A7%C3%A3o%20dos%20Requisitos%20da%20aplica%C3%A7%C3%A3o%20Web.md)
