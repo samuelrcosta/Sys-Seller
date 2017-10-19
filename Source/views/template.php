@@ -21,6 +21,7 @@
                 <?php if(isset($nome) && !empty($nome)): ?>
                     <li class='nav-item'><a class='nav-link'>Olá <?php echo $nome ?>!</a></li>
                     <li class='nav-item'><a class='nav-link' href="<?php echo BASE_URL;?>/produtos">Produtos</a></li>
+                    <li class='nav-item'><a class='nav-link' href="<?php echo BASE_URL;?>/clientes">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login/logout">Sair</a></li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL;?>/login">Login</a></li>
