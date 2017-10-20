@@ -1,141 +1,64 @@
-<html lang="pt-BR">
-<head>
-
-	<meta charset="UTF-8">
-	<title>Cadastro Cliente</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="text/.css" rel="stylesheet">
-<style>
-  .btn-sample { 
-  color: #FFFFFF; 
-  background-color: #1BBD20; 
-  border-color: #000000; 
-  width:70;
-  height:45px;
-} 
-   .btn-danger{
-   	color: #FFFFFF;
-	background-color: #FF0000;
-	border-color: #000000; 
-    width:75;
-    height:45px;
-}
- </style>
-</head>
-<body>
-
 <div class="container">
-    <div class="row">
-    
-    	<h2>Cadastrar Clientes</h2>
-        <form role="form">
-        
-        <div class="panel-group" id="accordion">
-        
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseDadosGerais">
-                            Dados Gerais
-                        </a>
-                    </h4>
-                </div>
-                
-                <div id="collapseLocalizacao" class="panel-collapse collapse in">
-                    <div class="panel-body">   
-                          
-                        <div class="row">
-                        
-                            <div class="col-xs-4">
-                                <label>Nome</label>
-                                <input type="text" class="form-control" id="logradouro" placeholder="Nome">
-                            </div>
-                            
-                             <div class="col-xs-6">
-                                <label>Sobrenome</label>
-                                <input type="text" class="form-control" placeholder="Sobrenome">
-                            </div>
-                            
-                            <div class="col-xs-2">
-                                <label>Número</label>
-                                <input type="text" class="form-control" placeholder="Número">
-                            </div>
-                            
-                            <div class="col-xs-2">
-                                <label>CPF/CNPJ</label>
-                                <input type="text" class="form-control" placeholder="CPF/CNPJ">
-                            </div>
-                            
-                            <div class="col-xs-2">
-                              <label class="col-md-4 control-label" for="uf">UF</label>
-                                <select id="sexo" name="sexo" class="form-control">
-                                  <option value="F">Estado</option>
-                                  <option value="M">Masculino</option>
-                                </select>
-                              </div>
-        
-                             <div class="col-xs-4">
-                                <label>CEP</label>
-                                <input type="text" class="form-control" id="complemento" placeholder="CEP">                               
-                            </div>
-                            
-                            <div class="col-xs-3">
-                                <label>Cidade</label>
-                                <input type="text" class="form-control" id="cidade" placeholder="Cidade">                               
-                            </div>
-                            
-                                 <div class="col-xs-4">
-                                <label>Endereco</label>
-                                <input type="text" class="form-control" placeholder="Endereço">
-                            </div>
-                            
-                            <div class="col-xs-2">
-                              <label class="col-md-4 control-label" for="tp">Pessoa</label>
-                                <select id="sexo" name="sexo" class="form-control">
-                                  <option value="E">Escolha</option>
-                                  <option value="F">Física</option>
-                                  <option value="J">Jurídica</option>
-                                </select>
-                              </div>
-        
-                      
-                                 <div class="col-xs-3">
-                                <label>Bairro</label>
-                                <input type="text" class="form-control" id="bairro" placeholder="Bairro">                               
-                            </div>
-                            
-                                  
-                        
-                              
-                                 <div class="col-xs-3">
-                                <label>Telefone</label>
-                                <input type="text" class="form-control" id="telefone" placeholder="Telefone">                               
-                            </div>
-                            
-                               <div class="col-xs-3">
-                                <label>Celular</label>
-                                <input type="text" class="form-control" id="celular" placeholder="(XX)XXXXX-XXXX">                               
-                            </div>
-                            
-                               <div class="col-xs-4">
-                                <label>E-mail</label>
-                                <input type="text" class="form-control" id="E-mail" placeholder="E-mail">                               
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-		<!-- panel-group -->               
+    <h1 style="margin-top: 20px">Cadastro de Cliente</h1>
+    <a class="btn btn-primary" style="margin-top: 10px;margin-bottom: 20px" href="<?php echo BASE_URL ?>/produtos">Voltar</a>
+    <form id="form-produto" method="POST" onsubmit="return validar(this)">
+        <div class="form-group">
+            <label><span class="obrigatorio">*</span>Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" data-alt="Nome" data-ob="0">
         </div>
-        
-		<br/>
-        <button type="submit" class="btn-sample">Confirmar</button>
-        <button type="submit" class="btn-danger">Voltar</button>
-		
-        </form>
-	</div>
+        <div class="form-group">
+            <label><span class="obrigatorio">*</span>CPF/CNPJ:</label>
+            <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" data-alt="CPF" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Endereço:</label>
+            <input type="text" class="form-control" id="endereco" name="endereco" data-alt="Endereço" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" data-alt="Bairro" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>CEP:</label>
+            <input type="text" class="form-control" id="cep" name="cep" data-alt="CEP" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="cidade" data-alt="Cidade" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" data-alt="Estado" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Tipo Pessoa:</label>
+            <input type="text" class="form-control" id="tipo_pessoa" name="tipo_pessoa" data-alt="TipoPessoa" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label>Telefone:</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" data-alt="Telefone" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label><span class="obrigatorio">*</span>Celular:</label>
+            <input type="text" class="form-control" id="celular" name="celular" data-alt="Celular" data-ob="0">
+        </div>
+        <div class="form-group">
+            <label><span class="obrigatorio">*</span>E-mail:</label>
+            <input type="text" class="form-control" id="codigo" name="email" data-alt="E-mail" data-ob="0">
+        </div>
+        <p id="infocampos">Obs.: Campos com <label><span class="obrigatorio">*</span></label> são de preenchimento obrigatório.</p>
+        <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
+            <ul class="list-group">
+                <li class="list-group-item">
+                </li>
+            </ul>
+        </div>
+        <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Cadastrar">
+    </form>
 </div>
-<script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<script src="<?php echo BASE_URL?>/assets/js/jquery.mask.js"></script>
+<script>
+    window.onload = function () {
+        $("#cpf").mask("#.##0,00", {reverse: true});
+    }
+</script>
