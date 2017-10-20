@@ -31,11 +31,11 @@ class clientesController extends controller {
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])) {
             header('Location:'.BASE_URL."/login");
         }
-        
+
         $c = new Clientes();
         if(isset($_POST['nome']) && !empty($_POST['nome'])) {
           $nome = addslashes($_POST['nome']);
-          $cpf_cnpj = addslashes($_POST['cof_cnpj']);
+          $cpf_cnpj = addslashes($_POST['cpf_cnpj']);
           $endereco = addslashes($_POST['endereco']);
           $bairro = addslashes($_POST['bairro']);
           $cep = addslashes($_POST['cep']);
@@ -47,9 +47,9 @@ class clientesController extends controller {
           $email = addslashes($_POST['email']);
           $c->cadastrarCliente($nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
             header("Location: ".BASE_URL."/clientes");
-        
+
         }
-        
+
         $u = new Usuarios();
         $c = new Clientes();
         $dados = $u->getDados($_SESSION['cLogin']);
@@ -85,14 +85,14 @@ class clientesController extends controller {
             header("Location: ".BASE_URL."/clientes");
         }
 
-        $u = new Usuarios();    
+        $u = new Usuarios();
         $dados = $u->getDados($_SESSION['cLogin']);
         $cliente = $c->getCliente(base64_decode(base64_decode(addslashes($id))));
         $dados = array(
             'titulo' => 'Clientes',
             'nome' => $dados['nome']
         );
-        
+
         $this->loadTemplate('EditarCliente', $dados);
     }
 
