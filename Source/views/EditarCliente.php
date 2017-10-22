@@ -4,15 +4,15 @@
     <form id="form-cliente" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Nome:</label>
-            <input type="text" class="form-control" id="nome" name="nome" data-alt="Nome" data-ob="0" value="<?php echo  $_GET['nome'] ?>">
+            <input type="text" class="form-control" id="nome" name="nome" data-alt="Nome" data-ob="0" value="<?php echo  $cliente['nome'] ?>">
         </div>
         <div class="form-group">
             <label><span class="obrigatorio">*</span>CPF/CNPJ:</label>
-            <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" data-alt="CPF" data-ob="0"  value="<?php echo $_GET['cpf_cnpj'] ?>">
+            <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" data-alt="CPF" data-ob="0"  value="<?php echo $cliente['cpf_cnpj'] ?>">
         </div>
         <div class="form-group">
             <label>Endereço:</label>
-            <input type="text" class="form-control" id="endereco" name="endereco" data-alt="Endereço" data-ob="0"  value="<?php echo $dados['endereco'] ?>">
+            <input type="text" class="form-control" id="endereco" name="endereco" data-alt="Endereço" data-ob="0"  value="<?php echo $cliente['endereco'] ?>">
         </div>
         <div class="form-group">
             <label>Bairro:</label>
