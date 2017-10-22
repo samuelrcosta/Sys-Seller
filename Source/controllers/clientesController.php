@@ -45,7 +45,7 @@ class clientesController extends controller {
           $telefone = addslashes($_POST['telefone']);
           $celular = addslashes($_POST['celular']);
           $email = addslashes($_POST['email']);
-          $c->cadastrarCliente($nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
+          $c->editarCliente(base64_decode(base64_decode(addslashes($id))), $nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
             header("Location: ".BASE_URL."/clientes");
 
         }
