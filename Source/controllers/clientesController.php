@@ -45,9 +45,8 @@ class clientesController extends controller {
           $telefone = addslashes($_POST['telefone']);
           $celular = addslashes($_POST['celular']);
           $email = addslashes($_POST['email']);
-          $c->editarCliente(base64_decode(base64_decode(addslashes($id))), $nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
+          $c->cadastrarCliente($nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
             header("Location: ".BASE_URL."/clientes");
-
         }
 
         $u = new Usuarios();
@@ -81,7 +80,7 @@ class clientesController extends controller {
           $telefone = addslashes($_POST['telefone']);
           $celular = addslashes($_POST['celular']);
           $email = addslashes($_POST['email']);
-          $c->editarCliente($nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
+          $c->editarCliente(base64_decode(base64_decode(addslashes($id))), $nome, $cpf_cnpj, $endereco, $bairro, $cep, $cidade, $estado, $tipo_pessoa, $telefone, $celular, $email);
             header("Location: ".BASE_URL."/clientes");
         }
 
@@ -90,7 +89,8 @@ class clientesController extends controller {
         $cliente = $c->getCliente(base64_decode(base64_decode(addslashes($id))));
         $dados = array(
             'titulo' => 'Clientes',
-            'nome' => $dados['nome']
+            'nome' => $dados['nome'],
+            'cliente' => $cliente
         );
 
         $this->loadTemplate('EditarCliente', $dados);
