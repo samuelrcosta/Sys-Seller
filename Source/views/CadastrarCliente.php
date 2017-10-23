@@ -1,6 +1,6 @@
 <div class="container">
     <h1 style="margin-top: 20px">Cadastro de Cliente</h1>
-    <a class="btn btn-primary" style="margin-top: 10px;margin-bottom: 20px" href="<?php echo BASE_URL ?>/produtos">Voltar</a>
+    <a class="btn btn-primary" style="margin-top: 10px;margin-bottom: 20px" href="<?php echo BASE_URL ?>/clientes">Voltar</a>
     <form id="form-produto" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Nome:</label>
