@@ -56,18 +56,17 @@
         <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Salvar">
     </form>
 </div>
-<script src="<?php echo BASE_URL?>/assets/js/jquery.mask.js"></script>
 <script>
     <?php if($cliente['tipo_pessoa'] == 'pf'):?>
     document.getElementById("pf").checked = true;
-    $("#cpf_cnpj").mask("000.000.000-00");
-    $("#cpf_cnpj").attr('data-alt', 'CPF');
-    $("#cpf_cnpj").parent().find('label').html("CPF");
+    $("#cpf-cnpj").mask("000.000.000-00");
+    $("#cpf-cnpj").attr('data-alt', 'CPF');
+    $("#cpf-cnpj").parent().find('label').html("CPF");
     <?php else: ?>
     document.getElementById("pj").checked = true;
-    $("#cpf_cnpj").mask("00.000.000/0000-00");
-    $("#cpf_cnpj").parent().find('label').html("CNPJ");
-    $("#cpf_cnpj").attr('data-alt', 'CNPJ');
+    $("#cpf-cnpj").mask("00.000.000/0000-00");
+    $("#cpf-cnpj").parent().find('label').html("CNPJ");
+    $("#cpf-cnpj").attr('data-alt', 'CNPJ');
     <?php endif;?>
     $("#cep").mask("00000-000");
     $("#celular").mask("(00) 0000-#0000");
@@ -75,15 +74,15 @@
 
     $(function () {
         $("#pj").on("click", function () {
-            $("#cpf_cnpj").mask("00.000.000/0000-00");
-            $("#cpf_cnpj").parent().find('label').html("CNPJ");
-            $("#cpf_cnpj").attr('data-alt', 'CNPJ');
+            $("#cpf-cnpj").mask("00.000.000/0000-00");
+            $("#cpf-cnpj").parent().find('label').html("CNPJ");
+            $("#cpf-cnpj").attr('data-alt', 'CNPJ');
         });
 
         $("#pf").on("click", function () {
-            $("#cpf_cnpj").mask("000.000.000-00");
-            $("#cpf_cnpj").attr('data-alt', 'CPF');
-            $("#cpf_cnpj").parent().find('label').html("CPF");
+            $("#cpf-cnpj").mask("000.000.000-00");
+            $("#cpf-cnpj").attr('data-alt', 'CPF');
+            $("#cpf-cnpj").parent().find('label').html("CPF");
         });
 
     })
