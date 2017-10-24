@@ -9,6 +9,14 @@
             <label for="nome">Senha</label>
             <input type="password" name="senha" id="senha" class="form-control" data-ob="1" data-alt="Senha">
         </div>
+        <div id="retorno" style="margin-bottom: 15px">
+            <div id='retorno' style='margin-bottom: 15px;margin-top: 5px;display: none' class='alert alert-danger'>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                    </li>
+                </ul>
+            </div>
+        </div>
         <?php
         if(!empty($aviso)){
             echo "<div class='alert alert-danger'>".$aviso."</div>";

@@ -36,12 +36,12 @@ class clientesController extends controller {
         if(isset($_POST['nome']) && !empty($_POST['nome'])) {
           $nome = addslashes($_POST['nome']);
           $cpf_cnpj = addslashes($_POST['cpf_cnpj']);
+          $tipo_pessoa = addslashes($_POST['tipo-pessoa']);
           $endereco = addslashes($_POST['endereco']);
           $bairro = addslashes($_POST['bairro']);
           $cep = addslashes($_POST['cep']);
           $cidade = addslashes($_POST['cidade']);
           $estado = addslashes($_POST['estado']);
-          $tipo_pessoa = addslashes($_POST['tipo_pessoa']);
           $telefone = addslashes($_POST['telefone']);
           $celular = addslashes($_POST['celular']);
           $email = addslashes($_POST['email']);
@@ -70,13 +70,13 @@ class clientesController extends controller {
         $c = new Clientes();
         if(isset($_POST['nome']) && !empty($_POST['nome'])) {
           $nome = addslashes($_POST['nome']);
-          $cpf_cnpj = addslashes($_POST['cpf_cnpj']);
+          $cpf_cnpj = addslashes($_POST['cpf-cnpj']);
           $endereco = addslashes($_POST['endereco']);
           $bairro = addslashes($_POST['bairro']);
           $cep = addslashes($_POST['cep']);
           $cidade = addslashes($_POST['cidade']);
           $estado = addslashes($_POST['estado']);
-          $tipo_pessoa = addslashes($_POST['tipo_pessoa']);
+          $tipo_pessoa = addslashes($_POST['tipo-pessoa']);
           $telefone = addslashes($_POST['telefone']);
           $celular = addslashes($_POST['celular']);
           $email = addslashes($_POST['email']);
