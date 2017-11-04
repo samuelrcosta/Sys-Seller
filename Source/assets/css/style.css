@@ -27,3 +27,41 @@ button{
     transform: translate(-50%, -50%);
     z-index: 11;
 }
+
+.listaProduto{
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px ;
+    overflow-y: scroll;
+    height: 300px;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+.listaProduto .lProduto{
+    margin-bottom: 5px;
+    border: 1px solid #aaa;
+    padding: 7px;
+    min-height: 53px;
+    position: relative;
+}
+.listaProduto .lProduto .add{
+    float: right;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.listaProduto .lProduto #quant{
+    width: 40px;
+    float: right;
+    position: absolute;
+    right: 50px;
+    top: 5px;
+    text-align: right;
+}
+.listaProduto .lProduto span{
+    width:100%;
+    display: block;
+    position: relative;
+}
+.listaProduto .lProduto .nome{
+    font-weight: bold;
+}
