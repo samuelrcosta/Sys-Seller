@@ -76,7 +76,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $produto = array(1);
         $quantidade = array(4);
 
-        $p->editarProduto($id, $cliente, $produto, $quantidade);
+        $p->editarPedido($id, $cliente, $produto, $quantidade);
         $sql = "SELECT * FROM vendas WHERE id = ?";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute(array($id));

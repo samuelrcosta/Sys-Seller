@@ -46,7 +46,7 @@ class Pedidos extends model{
      *
      * @param   $id     A integer for the order ID.
      */
-    public function editarProduto($id){
+    public function editarPedido($id){
         //TODO
     }
 
@@ -55,7 +55,7 @@ class Pedidos extends model{
      *
      * @param   $id     A integer for the order ID.
      */
-    public function excluirProduto($id){
+    public function excluirPedido($id){
         //TODO
     }
 }
