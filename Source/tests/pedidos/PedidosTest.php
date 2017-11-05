@@ -120,9 +120,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
             $db = new PDO('sqlite::sysseller:');
             $db->exec('CREATE TABLE `clientes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(200) NOT NULL, `cpf_cnpj` varchar(20), `endereco` varchar(200), `bairro` varchar(100), `cep` varchar(20), `cidade` varchar(50), `estado` varchar(50), `tipo_pessoa` varchar(5), `telefone` varchar(20), `celular` varchar(20), `email` varchar(100), `status_interno` INTEGER NOT NULL) ');
             $db->exec('CREATE TABLE `produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `codigo` varchar(100) DEFAULT NULL, `nome` varchar(150) NOT NULL, `categoria` varchar(150) DEFAULT NULL, `descricao` text, `preco` double NOT NULL, `status_interno` INTEGER NOT NULL) ');
-            $db->exec('CREATE TABLE `vendas` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_cliente` int(10) NOT NULL,
-  `data_venda` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `tipo_pagamento` int(11) DEFAULT NULL,
-  `total` float NOT NULL, `status` int(10) NOT NULL DEFAULT `1`)');
+            $db->exec('CREATE TABLE `vendas` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_cliente` int(10) NOT NULL, `data_venda` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `tipo_pagamento` int(11) DEFAULT NULL, `total` float NOT NULL, `status` int(10) NOT NULL DEFAULT `1`)');
             $db->exec('CREATE TABLE `vendas_produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_venda` int(11) NOT NULL, `id_produto` int(11) NOT NULL, `quantidade` int(10) NOT NULL DEFAULT `1`, `preco` float DEFAULT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }

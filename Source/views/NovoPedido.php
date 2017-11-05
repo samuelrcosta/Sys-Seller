@@ -1,6 +1,6 @@
 <div class="container">
     <h1 style="margin-top: 20px">Novo Pedido</h1>
-    <a class="btn btn-primary" style="margin-top: -40px;margin-bottom: 0px; float: right;" href="<?php echo BASE_URL ?>/clientes">Voltar</a>
+    <a class="btn btn-primary" style="margin-top: -40px;margin-bottom: 0px; float: right;" href="<?php echo BASE_URL ?>/pedidos">Voltar</a>
     <form id="form-produto" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Cliente:</label>
