@@ -124,9 +124,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
   `id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_cliente` int(10) NOT NULL,
   `data_venda` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `tipo_pagamento` int(11) DEFAULT NULL,
   `total` float NOT NULL, `status` int(10) unsigned NOT NULL DEFAULT `1`)');
-            $db->exec('CREATE TABLE `vendas_produtos` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_venda` int(11) NOT NULL, `id_produto` int(11) NOT NULL,
-  `quantidade` int(10) unsigned NOT NULL DEFAULT `1`, `preco` float DEFAULT NULL)');
+            $db->exec('CREATE TABLE `vendas_produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_venda` int(11) NOT NULL, `id_produto` int(11) NOT NULL, `quantidade` int(10) NOT NULL DEFAULT `1`, `preco` float DEFAULT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 
