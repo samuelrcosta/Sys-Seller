@@ -38,7 +38,7 @@ class Pedidos extends model{
      * This function register an order.
      */
     public function cadastrarPedido(){
-
+        //TODO
     }
 
     /**
@@ -47,7 +47,7 @@ class Pedidos extends model{
      * @param   $id     A integer for the order ID.
      */
     public function editarProduto($id){
-
+        //TODO
     }
 
     /**
@@ -56,7 +56,7 @@ class Pedidos extends model{
      * @param   $id     A integer for the order ID.
      */
     public function excluirProduto($id){
-
+        //TODO
     }
 }
 ?>
