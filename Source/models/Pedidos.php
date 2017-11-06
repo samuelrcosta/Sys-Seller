@@ -15,8 +15,28 @@ class Pedidos extends model{
      * @return  An array containing all data retrieved.
      */
     public function getPedido($id){
-        //TODO
-        $result = array('id'=>'1','cliente'=>'João','produtos'=>'3','total'=>'23.90');
+        $sql = "SELECT * FROM vendas WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $result = $sql->fetch();
+
+        $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $result['lista'] = $sql->fetchAll();
+
+        $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $result['produtos'] = 0;
+        foreach($sql->fetchAll() as $prod){
+            $result['produtos'] += $prod['quantidade'];
+        }
+
+        $c = new Clientes();
+        $cliente = $c->getCliente($result['id_cliente']);
+        $result['cliente'] = $cliente['nome'];
+
         return $result;
     }
 
@@ -26,10 +46,32 @@ class Pedidos extends model{
      * @return  An array containing all data retrieved.
      */
     public function getPedidos(){
-        //TODO
-        $result = array(array('id'=>'1','cliente'=>'João','produtos'=>'3','total'=>'23.90'),
-                        array('id'=>'2','cliente'=>'Luciana','produtos'=>'1','total'=>'8.50'),
-                        array('id'=>'4','cliente'=>'Mário','produtos'=>'17','total'=>'89.35'));
+        $result = array();
+
+        $sql = "SELECT * FROM vendas";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+
+        foreach ($sql->fetchAll() as $row){
+            $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($row['id']));
+            $row['lista'] = $sql->fetchAll();
+
+            $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($row['id']));
+            $row['produtos'] = 0;
+            foreach($sql->fetchAll() as $prod){
+                $row['produtos'] += $prod['quantidade'];
+            }
+
+            $c = new Clientes();
+            $cliente = $c->getCliente($row['id_cliente']);
+            $row['cliente'] = $cliente['nome'];
+
+            $result[] = $row;
+        }
         return $result;
     }
 
@@ -56,7 +98,9 @@ class Pedidos extends model{
      * @param   $id     A integer for the order ID.
      */
     public function excluirPedido($id){
-        //TODO
+        $sql = "UPDATE vendas SET status = ? WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array(2, $id));
     }
 }
 ?>
