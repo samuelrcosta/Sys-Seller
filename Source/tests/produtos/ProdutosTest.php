@@ -49,8 +49,8 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $p = new Produtos();
         $termo = "Teste";
         $result = $p->pesquisarProduto($termo);
-
-        $this->assertEquals('Nome Teste', $result);
+        $result = json_decode($result);
+        $this->assertEquals('Nome Teste', $result[0]['nome']);
     }
 
     public function testCadastrarProduto(){
