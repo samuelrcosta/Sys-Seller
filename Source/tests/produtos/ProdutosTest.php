@@ -50,12 +50,7 @@ final class ProdutosTest extends PHPUnit_Extensions_Database_TestCase{
         $termo = "Teste";
         $result = $p->pesquisarProduto($termo);
 
-        $this->assertEquals('Nome Teste', $result[0]['nome']);
-        $this->assertEquals('Teste', $result[0]['codigo']);
-        $this->assertEquals('Enxovais', $result[0]['categoria']);
-        $this->assertEquals('Produto de Qualidade', $result[0]['descricao']);
-        $this->assertEquals(20.5, $result[0]['preco']);
-        $this->assertEquals(1, $result[0]['status_interno']);
+        $this->assertEquals('Nome Teste', $result[0]);
     }
 
     public function testCadastrarProduto(){
