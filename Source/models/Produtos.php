@@ -46,8 +46,9 @@ class Produtos extends model{
         $sql = "SELECT * FROM produtos WHERE nome LIKE ? AND status_interno = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array("%".strtolower($termo)."%", 1));
+        $encode = "";
         while ($row = $sql->fetchAll()) {
-            $encode[] = $row;
+            $encode = $row;
         }
         return json_encode($encode);
     }
