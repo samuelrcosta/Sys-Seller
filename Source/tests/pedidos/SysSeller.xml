@@ -1,0 +1,80 @@
+<dataset>
+    <table name="clientes">
+        <column>id</column>
+        <column>nome</column>
+        <column>cpf_cnpj</column>
+        <column>endereco</column>
+        <column>bairro</column>
+        <column>cep</column>
+        <column>cidade</column>
+        <column>estado</column>
+        <column>tipo_pessoa</column>
+        <column>telefone</column>
+        <column>celular</column>
+        <column>email</column>
+        <column>status_interno</column>
+        <row>
+            <value>1</value>
+            <value>Nome Teste</value>
+            <value>000.111.222-33</value>
+            <value>Rua dos testes N 999</value>
+            <value>Setor dos testes</value>
+            <value>99999-999</value>
+            <value>Testolandia</value>
+            <value>Goias</value>
+            <value>PF</value>
+            <value>(62) 3344-5566</value>
+            <value>(62) 98877-6655</value>
+            <value>teste@adm.com.br</value>
+            <value>1</value>
+        </row>
+    </table>
+    <table name="produtos">
+        <column>id</column>
+        <column>codigo</column>
+        <column>nome</column>
+        <column>categoria</column>
+        <column>descricao</column>
+        <column>preco</column>
+        <column>status_interno</column>
+        <row>
+            <value>1</value>
+            <value>Teste</value>
+            <value>Nome Teste</value>
+            <value>Enxovais</value>
+            <value>Produto de Qualidade</value>
+            <value>20.50</value>
+            <value>1</value>
+        </row>
+    </table>
+    <table name="vendas">
+        <column>id</column>
+        <column>id_cliente</column>
+        <column>data_venda</column>
+        <column>tipo_pagamento</column>
+        <column>total</column>
+        <column>status</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>2017-11-05 15:39:18</value>
+            <value>1</value>
+            <value>41</value>
+            <value>1</value>
+        </row>
+    </table>
+    <table name="vendas_produtos">
+        <column>id</column>
+        <column>id_venda</column>
+        <column>id_produto</column>
+        <column>quantidade</column>
+        <column>preco</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>1</value>
+            <value>2</value>
+            <value>20.50</value>
+        </row>
+    </table>
+</dataset>

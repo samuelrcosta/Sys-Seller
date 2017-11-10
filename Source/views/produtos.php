@@ -19,7 +19,7 @@
                 <td><?php echo $produto['categoria'] ?></td>
                 <td><pre style="margin-bottom: 0"><?php echo $produto['descricao'] ?></pre></td>
                 <td>R$ <?php echo str_replace(".", ",", $produto['preco'])?></td>
-                <td><a class="btn btn-info" href='<?php echo BASE_URL ?>/produtos/editar/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exProduto()">Excluir</button></td>
+                <td><a class="btn btn-info" href='<?php echo BASE_URL ?>/produtos/editar/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exProduto('<?php echo base64_encode(base64_encode($produto['id'])) ?>')">Excluir</button></td>
             </tr>
             <?php endforeach;?>
         </tbody>
@@ -28,17 +28,22 @@
 <div id="fundo-escuro" style="display: none"></div>
 <div id="confirmacao-exclusao" style="display: none">
     <p>Tem certeza que deseja excluir o produto?</p>
-    <a class="btn btn-danger" href='<?php echo BASE_URL ?>/produtos/excluir/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Sim</a>
+    <button class="btn btn-danger" onclick="sexcluir()">Sim</button>
     <button class="btn btn-success" onclick="nexcluir()">Não</button>
 </div>
-
 <script>
-    function exProduto(){
+    var idUsu;
+    function exProduto(id){
         $("#fundo-escuro").show();
         $("#confirmacao-exclusao").show('fast');
+        idUsu = id;
     }
     function nexcluir() {
         $("#confirmacao-exclusao").hide('fast');
         $("#fundo-escuro").hide();
+    }
+
+    function sexcluir(){
+        window.location.href = '<?php echo BASE_URL ?>/produtos/excluir/' + idUsu;
     }
 </script>
