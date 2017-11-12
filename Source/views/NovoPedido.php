@@ -26,34 +26,23 @@
                     <td>
                         <div class="listaProduto busca">
                             <?php foreach ($produtos as $produto):?>
-                                <div class="lProduto">
+                                <div class="lProduto" pid="<?php echo $produto['id'] ?>">
                                     <span id="nome"><?php echo $produto['nome'] ?></span>
                                     <span id="preco">R$ <?php echo str_replace(".", ",", $produto['preco'])?></span>
-                                    <a class="btn btn-primary add" href="">+</a>
+                                    <a class="btn btn-success add">+</a>
                                 </div>
                             <?php endforeach;?>
                         </div>
                     </td>
                     <td>
                         <div class="listaProduto carrinho">
-                            <div class="lProduto">
-                                <span id="nome">Produto</span>
-                                <span id="preco">R$ 1.00</span>
-                                <input type="text" id="quant" value="1" />
-                                <a class="btn btn-primary add" href="">-</a>
-                            </div>
-                                <div class="lProduto">
-                                    <span id="nome">Produto</span>
-                                    <span id="preco">R$ 1.00</span>
-                                    <input type="text" id="quant" value="1" />
-                                    <a class="btn btn-primary add" href="">-</a>
-                                </div>
+
                         </div>
                     </td>
                 </tr>
             </table>
 
-
+            <input id="lista" type="hidden" val="" />
         </div>
         <p id="infocampos">Obs.: Campos com <label><span class="obrigatorio">*</span></label> são de preenchimento obrigatório.</p>
         <div id="retorno" style="margin-bottom: 15px">
@@ -68,17 +57,55 @@
     </form>
 </div>
 <script>
-    document.getElementById("pf").checked = true;
-    $("#cpf_cnpj").mask("000.000.000-00");
-    $("#cep").mask("00000-000");
-    $("#celular").mask("(00) 0000-#0000");
-    $("#telefone").mask("(00) 0000-0000");
+
+var options =  {
+    onChange: function(cep){
+      update();
+    }
+};
+
+    function update() {
+        var total = 0;
+        var lista = [];
+        var produtos = $(".carrinho .lProduto");
+
+        produtos.each(function( index ) {
+            var id = $(this).attr("pid");
+            var pre = parseFloat($(this).find("#preco").html().replace("R$ ", "").replace(",","."));
+            var qua = $(this).find("#quant").val();
+            total += qua * pre;
+            lista.push({id, qua});
+        });
+
+        $("#lista").val(JSON.stringify(lista));
+        $("span#total").html(total);
+    }
 
     $(function () {
-        $("#pj").on("click", function () {
-            $("#cpf_cnpj").mask("00.000.000/0000-00");
-            $("#cpf_cnpj").parent().find('label').html("CNPJ");
-            $("#cpf_cnpj").attr('data-alt', 'CNPJ');
+        $(".busca").on("click", ".add", function () {
+            var parent = $(this).parent(".lProduto");
+            var id = parent.attr("pid");
+            if( $(".carrinho .lProduto[pid='"+id+"']").length < 1 ) {
+                var name = parent.find("#nome").html();
+                var price = parent.find("#preco").html();
+                $(".carrinho").prepend('<div class="lProduto" pid="'+id+'"><span id="nome">'+name+'</span><span id="preco">'+price+'</span><input type="text" id="quant" value="1" /><a class="btn btn-danger rem">-</a></div>');
+                $(".carrinho .lProduto[pid='"+id+"'] #quant").mask("0#", options);
+            } else {
+                // TODO
+            }
+            update();
+        });
+
+
+        $(".carrinho").on("click", ".rem", function () {
+            var parent = $(this).parent(".lProduto");
+            parent.find("#quant").unmask();
+            parent.remove();
+            update();
+        });
+
+        $(".carrinho").on("change","#quant", function() {
+            update();
         });
 
         $("#pf").on("click", function () {
