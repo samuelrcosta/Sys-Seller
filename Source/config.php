@@ -6,7 +6,7 @@ if(ENVIRONMENT == 'development'){
     $config['dbname'] = 'sysseller';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';
-    $config['dbpass'] = 'root';
+    $config['dbpass'] = 'joao123';
 } else{
     define("BASE_URL", 'https://smrc.000webhostapp.com');
     $config['dbname'] = 'id2966524_sysseller';
