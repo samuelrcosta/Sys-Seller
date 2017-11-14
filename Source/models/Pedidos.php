@@ -29,8 +29,10 @@ class Pedidos extends model{
         $sql = $this->db->prepare($sql);
         $sql->execute(array($id));
         $result['produtos'] = 0;
+        $p = new Produtos();
         foreach($sql->fetchAll() as $prod){
             $result['produtos'] += $prod['quantidade'];
+            $result['prod_obj'][$prod['id_produto']] = $p->getProduto($prod['id_produto']);
         }
 
         $c = new Clientes();
@@ -48,7 +50,7 @@ class Pedidos extends model{
     public function getPedidos(){
         $result = array();
 
-        $sql = "SELECT * FROM vendas";
+        $sql = "SELECT * FROM vendas WHERE status='1'";
         $sql = $this->db->prepare($sql);
         $sql->execute();
 
@@ -79,7 +81,7 @@ class Pedidos extends model{
     /**
      * This function register an order.
      */
-    public function cadastrarPedido(){
+    public function cadastrarPedido($cliente, $produtos, $quantidade){
         //TODO
     }
 
@@ -88,7 +90,7 @@ class Pedidos extends model{
      *
      * @param   $id     A integer for the order ID.
      */
-    public function editarPedido($id){
+    public function editarPedido($id, $cliente, $produtos, $quantidade){
         //TODO
     }
 

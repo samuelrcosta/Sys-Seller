@@ -1,12 +1,12 @@
 <div class="container">
-    <h1 style="margin-top: 20px">Novo Pedido</h1>
+    <h1 style="margin-top: 20px">Editar Pedido</h1>
     <a class="btn btn-primary" style="margin-top: -40px;margin-bottom: 0px; float: right;" href="<?php echo BASE_URL ?>/pedidos">Voltar</a>
     <form id="form-pedido" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Cliente:</label>
             <select class="form-control" id="nome" name="nome">
             <?php foreach ($clientes as $cliente):?>
-                <option value="<?=$cliente['id'];?>"><?=$cliente['nome'];?></option>
+                <option value="<?=$cliente['id'];?>" <?=$venda['id_cliente']==$cliente['id']?"selected":"";?>><?=$cliente['nome'];?></option>
             <?php endforeach;?>
            </select>
         </div>
@@ -36,13 +36,21 @@
                     </td>
                     <td>
                         <div class="listaProduto carrinho">
-
+                            <?php foreach ($venda['lista'] as $prod):?>
+                                <div class="lProduto" pid="<?=$prod['id_produto'];?>">
+                                    <span id="nome"><?=$venda['prod_obj'][$prod['id_produto']]['nome'];?></span>
+                                    <span id="preco"><?=$venda['prod_obj'][$prod['id_produto']]['preco'];?></span>
+                                    <input type="text" id="quant" value="<?=$prod['quantidade'];?>" />
+                                    <a class="btn btn-danger rem" href="">-</a>
+                                </div>
+                            <?php endforeach;?>
                         </div>
                     </td>
                 </tr>
             </table>
 
             <input id="lista" name="lista" type="hidden" value="" />
+            <input name="id" type="hidden" value="<?=$venda['id'];?>" />
         </div>
         <p id="infocampos">Obs.: Campos com <label><span class="obrigatorio">*</span></label> são de preenchimento obrigatório.</p>
         <div id="retorno" style="margin-bottom: 15px">
@@ -53,7 +61,7 @@
                 </ul>
             </div>
         </div>
-        <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Cadastrar">
+        <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Editar">
     </form>
 </div>
 <script>
@@ -107,5 +115,7 @@ var options =  {
         $(".carrinho").on("change","#quant", function() {
             update();
         });
+
+        update();
     })
 </script>

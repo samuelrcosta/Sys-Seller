@@ -36,15 +36,21 @@ class pedidosController extends controller{
         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
             header('Location:'.BASE_URL."/login");
         }
-        $p = new Produtos();
-        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['preco']) && !empty($_POST['preco'])){
-            $codigo = addslashes($_POST['codigo']);
-            $nome = addslashes($_POST['nome']);
-            $categoria = addslashes($_POST['categoria']);
-            $descricao = addslashes($_POST['descricao']);
-            $preco = addslashes(str_replace(",", ".", str_replace(".", "", $_POST['preco'])));
-            $p->cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco);
-            header("Location: ".BASE_URL."/produtos");
+        $v = new Pedidos();
+        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['lista']) && !empty($_POST['lista'])){
+            $cliente = addslashes($_POST['nome']);
+            $lista = html_entity_decode($_POST['lista']);
+            $json = json_decode($lista);
+            $produtos = array();
+            $quant = array();
+
+            foreach($json as $sacola) {
+                $produtos[] = $sacola->id;
+                $quant[] = $sacola->qua;
+            }
+
+            $v->cadastrarPedido($cliente, $produtos, $quant);
+            header("Location: ".BASE_URL."/pedidos");
         }
         $u = new Usuarios();
         $c = new Clientes();
@@ -67,7 +73,41 @@ class pedidosController extends controller{
      * After editing an order, it updates the database.
      */
     public function editar($id){
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header('Location:'.BASE_URL."/login");
+        }
+        $v = new Pedidos();
+        if(isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['lista']) && !empty($_POST['lista'])){
+            $id = addslashes($id);
+            $cliente = addslashes($_POST['nome']);
+            $lista = html_entity_decode($_POST['lista']);
+            $json = json_decode($lista);
+            $produtos = array();
+            $quant = array();
 
+            foreach($json as $sacola) {
+                $produtos[] = $sacola->id;
+                $quant[] = $sacola->qua;
+            }
+
+            $v->editarPedido($id, $cliente, $produtos, $quant);
+            header("Location: ".BASE_URL."/pedidos");
+        }
+        $u = new Usuarios();
+        $c = new Clientes();
+        $p = new Produtos();
+        $venda = $v->getPedido(base64_decode(base64_decode(addslashes($id))));
+        $produtos = $p->getProdutos();
+        $clientes = $c->getClientes();
+        $dados = $u->getDados($_SESSION['cLogin']);
+        $dados = array(
+            'titulo' => 'Editar Pedido',
+            'nome' => $dados['nome'],
+            'clientes' => $clientes,
+            'produtos' => $produtos,
+            'venda' => $venda
+        );
+        $this->loadTemplate('EditarPedido', $dados);
     }
 
     /**
@@ -76,6 +116,13 @@ class pedidosController extends controller{
      * After deleting an order, it updates the database.
      */
     public function excluir($id){
-
+        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+            header('Location:'.BASE_URL."/login");
+        }
+        $p = new Pedidos();
+        $u = new Usuarios();
+        $dados = $u->getDados($_SESSION['cLogin']);
+        $p->excluirPedido(base64_decode(base64_decode(addslashes($id))));
+        header("Location: ".BASE_URL."/pedidos");
     }
 }
