@@ -4,26 +4,28 @@
     <form id="form-pedido" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Cliente:</label>
-            <select class="form-control" id="nome" name="nome">
+            <select class="form-control" id="nome" name="nome" data-alt="Cliente" data-ob="1">
             <?php foreach ($clientes as $cliente):?>
                 <option value="<?=$cliente['id'];?>"><?=$cliente['nome'];?></option>
             <?php endforeach;?>
            </select>
         </div>
         <div class="form-group">
-            <label>Produtos:</label>
-
             <table width="100%" cellpadding="10">
                 <tr>
                     <td width="50%">
-                        <input type="text" class="form-control" id="busca">
-                    </td>
-                    <td>
-                        <label>Total: R$ <span id="total">0.00</span></label>
+                        <label>Tipo de Pagamento</label>
+                        <select class="form-control" id="tipo_pagamento" name="tipo_pagamento" data-alt="Tipo de Pagamento" data-ob="1">
+                            <option value="1">Dinheiro</option>
+                            <option value="2">Cartão de Crédito</option>
+                            <option value="3">Cartão de Débito</option>
+                            <option value="4">Cheque</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <label>Produtos:</label>
                         <div class="listaProduto busca">
                             <?php foreach ($produtos as $produto):?>
                                 <div class="lProduto" pid="<?php echo $produto['id'] ?>">
@@ -35,6 +37,7 @@
                         </div>
                     </td>
                     <td>
+                        <label><strong>Total: R$ <span id="total">0.00</span></strong></label>
                         <div class="listaProduto carrinho">
 
                         </div>

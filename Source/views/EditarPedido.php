@@ -4,26 +4,28 @@
     <form id="form-pedido" method="POST" onsubmit="return validar(this)">
         <div class="form-group">
             <label><span class="obrigatorio">*</span>Cliente:</label>
-            <select class="form-control" id="nome" name="nome">
+            <select class="form-control" id="nome" name="nome" data-alt="Cliente" data-ob="1">
             <?php foreach ($clientes as $cliente):?>
                 <option value="<?=$cliente['id'];?>" <?=$venda['id_cliente']==$cliente['id']?"selected":"";?>><?=$cliente['nome'];?></option>
             <?php endforeach;?>
            </select>
         </div>
         <div class="form-group">
-            <label>Produtos:</label>
-
             <table width="100%" cellpadding="10">
                 <tr>
                     <td width="50%">
-                        <input type="text" class="form-control" id="busca">
-                    </td>
-                    <td>
-                        <label>Total: R$ <span id="total">0.00</span></label>
+                        <label>Tipo de Pagamento</label>
+                        <select class="form-control" id="tipo_pagamento" name="tipo_pagamento" data-alt="TIpo de Pagamento" data-ob="1">
+                            <option value="1" <?=$venda['tipo_pagamento'] == 1?"selected":"";?>>Dinheiro</option>
+                            <option value="2" <?=$venda['tipo_pagamento'] == 2?"selected":"";?>>Cartão de Crédito</option>
+                            <option value="3" <?=$venda['tipo_pagamento'] == 3?"selected":"";?>>Cartão de Débito</option>
+                            <option value="4" <?=$venda['tipo_pagamento'] == 4?"selected":"";?>>Cheque</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <label>Produtos:</label>
                         <div class="listaProduto busca">
                             <?php foreach ($produtos as $produto):?>
                                 <div class="lProduto" pid="<?php echo $produto['id'] ?>">
@@ -35,11 +37,12 @@
                         </div>
                     </td>
                     <td>
+                        <label><strong>Total: R$ <span id="total">0.00</span></strong></label>
                         <div class="listaProduto carrinho">
                             <?php foreach ($venda['lista'] as $prod):?>
                                 <div class="lProduto" pid="<?=$prod['id_produto'];?>">
                                     <span id="nome"><?=$venda['prod_obj'][$prod['id_produto']]['nome'];?></span>
-                                    <span id="preco"><?=$venda['prod_obj'][$prod['id_produto']]['preco'];?></span>
+                                    <span id="preco">R$ <?=$venda['prod_obj'][$prod['id_produto']]['preco'];?></span>
                                     <input type="text" id="quant" value="<?=$prod['quantidade'];?>" />
                                     <a class="btn btn-danger rem" href="">-</a>
                                 </div>
@@ -61,7 +64,7 @@
                 </ul>
             </div>
         </div>
-        <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Editar">
+        <input type="submit" class="btn-lg btn-success" style="cursor: pointer" value="Salvar">
     </form>
 </div>
 <script>

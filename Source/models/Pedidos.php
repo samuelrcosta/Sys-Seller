@@ -3,16 +3,16 @@
  * This class retrieves and saves data of the orders.
  *
  * @author  adryanoalf
- * @version 0.4.0, 11/03/2017
- * @since   0.4
+ * @version 0.6.0, 15/11/2017
+ * @since   0.1
  */
 class Pedidos extends model{
 
     /**
      * This function retrieves all data from an order, by using it's ID.
      *
-     * @param   $id The order ID number saved in the database.
-     * @return  An array containing all data retrieved.
+     * @param   $id int for the order ID number saved in the database.
+     * @return  array containing all data retrieved.
      */
     public function getPedido($id){
         $sql = "SELECT * FROM vendas WHERE id = ?";
@@ -45,7 +45,7 @@ class Pedidos extends model{
     /**
      * This function retrieves all data from all orders in database.
      *
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getPedidos(){
         $result = array();
@@ -80,18 +80,64 @@ class Pedidos extends model{
 
     /**
      * This function register an order.
+     *
+     * @param   $cliente        int for the client ID number saved in the database.
+     * @param   $produtos       array for the products of this order.
+     * @param   $quantidade     array for the number of products in this order.
+     * @param   $tipo_pagamento int for the payment type.
      */
-    public function cadastrarPedido($cliente, $produtos, $quantidade){
-        //TODO
+    public function cadastrarPedido($cliente, $produtos, $quantidade, $tipo_pagamento){
+        $p = new Produtos();
+        $total = 0;
+        date_default_timezone_set('America/Sao_Paulo');
+        $data = date("Y-m-d H:i:s");
+        for($i = 0; $i < count($produtos); $i++){
+            $total = $total + ($p->getProduto($produtos[$i])['preco'] * $quantidade[$i]);
+        }
+        $sql = "INSERT INTO vendas (id_cliente, tipo_pagamento, data_venda, total) VALUES (?, ?, ?, ?)";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($cliente, $tipo_pagamento, $data, $total));
+
+        $sql = "SELECT id FROM vendas WHERE id_cliente = ? ORDER BY id DESC";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($cliente));
+        $id_venda = $sql->fetch()['id'];
+
+        for($i = 0; $i < count($produtos); $i++){
+            $sql = "INSERT INTO vendas_produtos (id_venda, id_produto, quantidade, preco) VALUES (?, ?, ?, ?)";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($id_venda, $produtos[$i], $quantidade[$i], $p->getProduto($produtos[$i])['preco']));
+        }
     }
 
     /**
      * This function edit an order in database by using it's ID.
      *
-     * @param   $id     A integer for the order ID.
+     * @param   $id             int for the order ID.
+     * @param   $cliente        int for the client ID number saved in the database.
+     * @param   $produtos       array for the products of this order.
+     * @param   $quantidade     array for the number of products in this order.
+     * @param   $tipo_pagamento int for the payment type.
      */
-    public function editarPedido($id, $cliente, $produtos, $quantidade){
-        //TODO
+    public function editarPedido($id, $cliente, $produtos, $quantidade, $tipo_pagamento){
+        $p = new Produtos();
+        $total = 0;
+        for($i = 0; $i < count($produtos); $i++){
+            $total = $total + ($p->getProduto($produtos[$i])['preco'] * $quantidade[$i]);
+        }
+        $sql = "UPDATE vendas SET id_cliente = ?, tipo_pagamento = ?, total = ? WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($cliente, $tipo_pagamento, $total, $id));
+
+        $sql = "DELETE FROM vendas_produtos WHERE id_venda = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+
+        for($i = 0; $i < count($produtos); $i++){
+            $sql = "INSERT INTO vendas_produtos (id_venda, id_produto, quantidade, preco) VALUES (?, ?, ?, ?)";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($id, $produtos[$i], $quantidade[$i], $p->getProduto($produtos[$i])['preco']));
+        }
     }
 
     /**

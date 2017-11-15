@@ -5,7 +5,8 @@
             <tr>
                 <th>Número</th>
                 <th>Cliente</th>
-                <th>Produtos</th>
+                <th>Pagamento</th>
+                <th>Itens</th>
                 <th>Total</th>
                 <th>Ações</th>
             </tr>
@@ -15,8 +16,9 @@
             <tr>
                 <td><?php echo $pedido['id'] ?></td>
                 <td><?php echo $pedido['cliente'] ?></td>
+                <td><?php if($pedido['tipo_pagamento'] == 1) echo "Dinheiro"; elseif ($pedido['tipo_pagamento'] == 2) echo "Cartão de Crédito"; elseif ($pedido['tipo_pagamento'] == 3) echo "Cartão de Débito"; else echo "Cheque" ?></td>
                 <td><?php echo $pedido['produtos'] ?></td>
-                <td>R$ <?php echo $pedido['total'] ?></td>
+                <td>R$ <?php echo str_replace("/", ",", str_replace(",", ".", str_replace(".","/", number_format($pedido['total'], 2)))) ?></td>
                 <td><a class="btn btn-info" href='<?php echo BASE_URL ?>/pedidos/editar/<?php echo base64_encode(base64_encode($pedido['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exPedido('<?php echo base64_encode(base64_encode($pedido['id'])) ?>')">Excluir</button></td>
             </tr>
             <?php endforeach;?>

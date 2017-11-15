@@ -47,14 +47,16 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $cliente = "1";
         $produto = array(1);
         $quantidade = array(5);
+        $tipo_pagamento = 1;
 
-        $p->cadastrarPedido($cliente, $produto, $quantidade);
+        $p->cadastrarPedido($cliente, $produto, $quantidade, $tipo_pagamento);
         $sql = "SELECT * FROM vendas ORDER BY id desc";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute();
         $result = $sql->fetch();
         $this->assertEquals(1, $result['id_cliente']);
         $this->assertEquals(102.5, $result['total']);
+        $this->assertEquals(1, $result['tipo_pagamento']);
 
         $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ? ORDER BY id desc";
         $sql = $GLOBALS['db']->prepare($sql);
@@ -75,8 +77,9 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $cliente = "1";
         $produto = array(1);
         $quantidade = array(4);
+        $tipo_pagamento = 2;
 
-        $p->editarPedido($id, $cliente, $produto, $quantidade);
+        $p->editarPedido($id, $cliente, $produto, $quantidade, $tipo_pagamento);
         $sql = "SELECT * FROM vendas WHERE id = ?";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute(array($id));
@@ -84,7 +87,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals($id, $result['id']);
         $this->assertEquals($cliente, $result['id_cliente']);
         $this->assertEquals(82, $result['total']);
-
+        $this->assertEquals(2, $result['tipo_pagamento']);
         $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ? ORDER BY id desc";
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute(array($id));

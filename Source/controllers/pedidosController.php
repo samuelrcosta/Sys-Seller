@@ -39,6 +39,7 @@ class pedidosController extends controller{
         $v = new Pedidos();
         if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['lista']) && !empty($_POST['lista'])){
             $cliente = addslashes($_POST['nome']);
+            $tipo_pagamento = addslashes($_POST['tipo_pagamento']);
             $lista = html_entity_decode($_POST['lista']);
             $json = json_decode($lista);
             $produtos = array();
@@ -49,7 +50,7 @@ class pedidosController extends controller{
                 $quant[] = $sacola->qua;
             }
 
-            $v->cadastrarPedido($cliente, $produtos, $quant);
+            $v->cadastrarPedido($cliente, $produtos, $quant, $tipo_pagamento);
             header("Location: ".BASE_URL."/pedidos");
         }
         $u = new Usuarios();
@@ -78,8 +79,9 @@ class pedidosController extends controller{
         }
         $v = new Pedidos();
         if(isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['lista']) && !empty($_POST['lista'])){
-            $id = addslashes($id);
+            $id = addslashes(base64_decode(base64_decode($id)));
             $cliente = addslashes($_POST['nome']);
+            $tipo_pagamento = addslashes($_POST['tipo_pagamento']);
             $lista = html_entity_decode($_POST['lista']);
             $json = json_decode($lista);
             $produtos = array();
@@ -90,7 +92,7 @@ class pedidosController extends controller{
                 $quant[] = $sacola->qua;
             }
 
-            $v->editarPedido($id, $cliente, $produtos, $quant);
+            $v->editarPedido($id, $cliente, $produtos, $quant, $tipo_pagamento);
             header("Location: ".BASE_URL."/pedidos");
         }
         $u = new Usuarios();
