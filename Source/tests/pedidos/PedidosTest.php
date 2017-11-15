@@ -92,8 +92,8 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $sql = $GLOBALS['db']->prepare($sql);
         $sql->execute(array($id));
         $result = $sql->fetch();
-        $this->assertEquals($produto, $result['id_produto']);
-        $this->assertEquals($quantidade, $result['quantidade']);
+        $this->assertEquals($produto[0], $result['id_produto']);
+        $this->assertEquals($quantidade[0], $result['quantidade']);
     }
 
     public function testExcluirPedido(){
