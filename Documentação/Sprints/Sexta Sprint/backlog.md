@@ -1,0 +1,13 @@
+### Backlog da sexta Sprint
+* Alteração do UML para as pesquisas (5 pontos)
+* Backend pesquisa Produtos (5 pontos)
+* Backend pesquisa Clientes (5 pontos)
+* Backend pesquisa Pedidos (5 pontos)
+* Backend loggin (13 pontos)
+* Atualização dos testes com as pesquisas (8 pontos)
+* Frontend pesquisa na Lista de Produtos (5 pontos)
+* Frontend pesquisa na Lista de Clientes (5 pontos)
+* Frontend pesquisa na Lista de Pedidos (5 pontos)
+* Frontend pesquisa de produtos dentro do pedido (8 pontos)
+* Frontend loggin (8 pontos)
+* Transição para ambiente de produção (5 pontos)
