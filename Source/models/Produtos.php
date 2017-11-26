@@ -3,16 +3,16 @@
  * This class retrieves and saves data of the user.
  *
  * @author  samuelrcosta
- * @version 0.1.0, 10/06/2017
- * @since   0.1
+ * @version 1.1.0, 26/11/2017
+ * @since   06/10/2017
  */
 class Produtos extends model{
 
     /**
      * This function retrieves all data from an product, by using it's ID.
      *
-     * @param   $id The product ID number saved in the database.
-     * @return  An array containing all data retrieved.
+     * @param   $id int for the product ID number saved in the database.
+     * @return  array containing all data retrieved.
      */
     public function getProduto($id){
         $sql = "SELECT * FROM produtos WHERE id = ?";
@@ -25,7 +25,7 @@ class Produtos extends model{
     /**
      * This function retrieves all data from all products in database.
      *
-     * @return  An array containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function getProdutos(){
         $sql = "SELECT * FROM produtos WHERE status_interno = ?";
@@ -57,43 +57,57 @@ class Produtos extends model{
     /**
      * This function register a product.
      *
-     * @param   $codigo     A string for the product code.
-     * @param   $nome       A string for the product name.
-     * @param   $categoria  A string for the product category.
-     * @param   $descricao  A string for the product description.
-     * @param   $preco      A float for the product price.
+     * @param   $codigo     string for the product code.
+     * @param   $nome       string for the product name.
+     * @param   $categoria  string for the product category.
+     * @param   $descricao  string for the product description.
+     * @param   $preco      float for the product price.
      */
     public function cadastrarProduto($codigo, $nome, $categoria, $descricao, $preco){
         $sql = "INSERT INTO produtos (codigo, nome, categoria, descricao, preco, status_interno) VALUES (?, ?, ?, ?, ?, ?)";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($codigo, $nome, $categoria, $descricao, $preco, 1));
+        $sql = "SELECT id FROM produtos ORDER BY id DESC LIMIT 1";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        $id = $sql->fetch()['id'];
+        $log = new Logs();
+        $log->registrarLog(1, "Cadastrar Produto", "Cadastro do produto: ".$nome, $id);
     }
     
     /**
      * This function edit a product in database by using it's ID.
      *
-     * @param   $id         A integer for the product ID.
-     * @param   $codigo     A string for the product code.
-     * @param   $nome       A string for the product name.
-     * @param   $categoria  A string for the product category.
-     * @param   $preco      A float for the product price.
-     * @param   $descricao  A string for the product description.
+     * @param   $id         integer for the product ID.
+     * @param   $codigo     string for the product code.
+     * @param   $nome       string for the product name.
+     * @param   $categoria  string for the product category.
+     * @param   $preco      float for the product price.
+     * @param   $descricao  string for the product description.
      */
     public function editarProduto($id, $codigo, $nome, $categoria, $descricao, $preco){
         $sql = "UPDATE produtos SET codigo = ?, nome = ?, categoria = ?, descricao = ?, preco = ? WHERE id = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array($codigo, $nome, $categoria, $descricao, $preco, $id));
+        $log = new Logs();
+        $log->registrarLog(2, "Editar Produto", "Edição do produto: ".$nome, $id);
     }
     
     /**
      * This function disable a product in database by using it's ID.
      *
-     * @param   $id     A integer for the product ID.
+     * @param   $id     integer for the product ID.
      */
     public function excluirProduto($id){
+        $sql = "SELECT nome FROM produtos WHERE id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array($id));
+        $nome = $sql->fetch()['nome'];
         $sql = "UPDATE produtos SET status_interno = ? WHERE id = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array(2, $id));
+        $log = new Logs();
+        $log->registrarLog(3, "Excluir Produto", "Exclusão do produto: ".$nome, $id);
     }
 }
 ?>

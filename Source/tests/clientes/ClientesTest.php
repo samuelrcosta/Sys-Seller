@@ -58,7 +58,7 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
-
+        $_SESSION['cLogin'] = 1;
         $c = new Clientes();
 
         $nome = "Segundo Teste";
@@ -96,7 +96,7 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
-
+        $_SESSION['cLogin'] = 1;
         $c = new Clientes();
 
         $id = 1;
@@ -136,7 +136,7 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
-
+        $_SESSION['cLogin'] = 1;
         $c = new Clientes();
 
         $id = 1;
@@ -157,7 +157,8 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
         if(!$this->conn) {
 
             $db = new PDO('sqlite::sysseller:');
-            $db->exec('CREATE TABLE `clientes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(200) NOT NULL, `cpf_cnpj` varchar(20), `endereco` varchar(200), `bairro` varchar(100), `cep` varchar(20), `cidade` varchar(50), `estado` varchar(50), `tipo_pessoa` varchar(5), `telefone` varchar(20), `celular` varchar(20), `email` varchar(100), `status_interno` INTEGER NOT NULL) ');
+            $db->exec('CREATE TABLE `clientes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` varchar(200) NOT NULL, `cpf_cnpj` varchar(20), `endereco` varchar(200), `bairro` varchar(100), `cep` varchar(20), `cidade` varchar(50), `estado` varchar(50), `tipo_pessoa` varchar(5), `telefone` varchar(20), `celular` varchar(20), `email` varchar(100), `status_interno` INTEGER NOT NULL)');
+            $db->exec('CREATE TABLE `logs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_registro` int(11) NOT NULL, `data_ocorrencia` datetime NOT NULL, `severidade` int(11) NOT NULL, `id_usuario` int(11) NOT NULL, `resultado` varchar(200) NOT NULL, `descricao` text NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 

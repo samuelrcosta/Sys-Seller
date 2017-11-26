@@ -41,7 +41,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
-
+        $_SESSION['cLogin'] = 1;
         $p = new Pedidos();
 
         $cliente = "1";
@@ -70,6 +70,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
+        $_SESSION['cLogin'] = 1;
 
         $p = new Pedidos();
 
@@ -100,6 +101,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $conn = $this->getConnection()->getConnection();
 
         $GLOBALS['db'] = $conn;
+        $_SESSION['cLogin'] = 1;
 
         $p = new Pedidos();
 
@@ -125,6 +127,7 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
             $db->exec('CREATE TABLE `produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `codigo` varchar(100) DEFAULT NULL, `nome` varchar(150) NOT NULL, `categoria` varchar(150) DEFAULT NULL, `descricao` text, `preco` double NOT NULL, `status_interno` INTEGER NOT NULL) ');
             $db->exec('CREATE TABLE `vendas` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_cliente` int(10) NOT NULL, `data_venda` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `tipo_pagamento` int(11) DEFAULT NULL, `total` float NOT NULL, `status` int(10) NOT NULL DEFAULT `1`)');
             $db->exec('CREATE TABLE `vendas_produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_venda` int(11) NOT NULL, `id_produto` int(11) NOT NULL, `quantidade` int(10) NOT NULL DEFAULT `1`, `preco` float DEFAULT NULL)');
+            $db->exec('CREATE TABLE `logs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_registro` int(11) NOT NULL, `data_ocorrencia` datetime NOT NULL, `severidade` int(11) NOT NULL, `id_usuario` int(11) NOT NULL, `resultado` varchar(200) NOT NULL, `descricao` text NOT NULL)');
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 

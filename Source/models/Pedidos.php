@@ -3,8 +3,8 @@
  * This class retrieves and saves data of the orders.
  *
  * @author  adryanoalf
- * @version 0.6.0, 15/11/2017
- * @since   0.1
+ * @version 1.6.0, 26/11/2017
+ * @since   15/11/2017
  */
 class Pedidos extends model{
 
@@ -108,6 +108,8 @@ class Pedidos extends model{
             $sql = $this->db->prepare($sql);
             $sql->execute(array($id_venda, $produtos[$i], $quantidade[$i], $p->getProduto($produtos[$i])['preco']));
         }
+        $log = new Logs();
+        $log->registrarLog(1, "Cadastrar Pedido", "Cadastro do pedido: ".$id_venda, $id_venda);
     }
 
     /**
@@ -138,17 +140,21 @@ class Pedidos extends model{
             $sql = $this->db->prepare($sql);
             $sql->execute(array($id, $produtos[$i], $quantidade[$i], $p->getProduto($produtos[$i])['preco']));
         }
+        $log = new Logs();
+        $log->registrarLog(2, "Editar Pedido", "Edição do pedido: ".$id, $id);
     }
 
     /**
      * This function disable an order in database by using it's ID.
      *
-     * @param   $id     A integer for the order ID.
+     * @param   $id     integer for the order ID.
      */
     public function excluirPedido($id){
         $sql = "UPDATE vendas SET status = ? WHERE id = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array(2, $id));
+        $log = new Logs();
+        $log->registrarLog(3, "Excluir Pedido", "Exclusão do pedido: ".$id, $id);
     }
 }
 ?>

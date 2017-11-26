@@ -77,4 +77,22 @@
             <value>20.50</value>
         </row>
     </table>
+    <table name="logs">
+        <column>id</column>
+        <column>id_registro</column>
+        <column>data_ocorrencia</column>
+        <column>severidade</column>
+        <column>id_usuario</column>
+        <column>resultado</column>
+        <column>descricao</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>2017-11-26 15:00:00</value>
+            <value>2</value>
+            <value>1</value>
+            <value>Editar Pedido</value>
+            <value>Edição do pedido: 1</value>
+        </row>
+    </table>
 </dataset>
