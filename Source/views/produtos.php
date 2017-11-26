@@ -18,7 +18,7 @@
                 <td><?php echo $produto['nome'] ?></td>
                 <td><?php echo $produto['categoria'] ?></td>
                 <td><pre style="margin-bottom: 0"><?php echo $produto['descricao'] ?></pre></td>
-                <td>R$ <?php echo str_replace(".", ",", $produto['preco'])?></td>
+                <td>R$ <?php echo str_replace("/", ",", str_replace(",", ".", str_replace(".","/", number_format($produto['preco'], 2)))) ?></td>
                 <td><a class="btn btn-info" href='<?php echo BASE_URL ?>/produtos/editar/<?php echo base64_encode(base64_encode($produto['id'])) ?>'>Editar</a> <button class="btn btn-danger" onclick="exProduto('<?php echo base64_encode(base64_encode($produto['id'])) ?>')">Excluir</button></td>
             </tr>
             <?php endforeach;?>
