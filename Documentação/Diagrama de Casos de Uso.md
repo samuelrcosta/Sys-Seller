@@ -1,4 +1,4 @@
-# Casos de Uso 
+# Diagrama de Casos de Uso 
 
 Os casos de uso do Sys-Seller estão simplificados abaixo:  
 
