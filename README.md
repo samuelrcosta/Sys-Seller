@@ -17,7 +17,9 @@ Para acessar o quadro do trello [clique aqui](https://trello.com/b/PHFJUiiI).
 ## Documentos do Projeto
 * [Termo de Abertura](https://github.com/samuelrcosta/Sys-Seller/blob/master/Documenta%C3%A7%C3%A3o/Termo%20de%20Abertura.md)
 * [Backlog do Produto](https://github.com/samuelrcosta/Sys-Seller/blob/master/Documenta%C3%A7%C3%A3o/Defini%C3%A7%C3%A3o%20dos%20Requisitos%20da%20aplica%C3%A7%C3%A3o%20Web.md)
+* [Diagrama de Casos de Uso](https://github.com/samuelrcosta/Sys-Seller/blob/master/Documenta%C3%A7%C3%A3o/Diagrama%20de%20Casos%20de%20Uso.md)
 * [Diagrama de Classes](https://github.com/samuelrcosta/Sys-Seller/blob/master/Documenta%C3%A7%C3%A3o/Diagramas%20de%20Classes.md)
+* [Diagrama de Atividades](https://github.com/samuelrcosta/Sys-Seller/blob/master/Documenta%C3%A7%C3%A3o/Diagrama%20de%20Atividades.md)
 
 ## Integrantes
 * [Samuel Rocha Costa](https://github.com/samuelrcosta)
