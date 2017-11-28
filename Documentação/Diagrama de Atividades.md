@@ -1,4 +1,4 @@
-  # O Diagrama de Atividades
+  # Diagrama de Atividades
   
   O Diagrama está representado abaixo:
   
