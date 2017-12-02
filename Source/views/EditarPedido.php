@@ -26,19 +26,14 @@
                 <tr>
                     <td>
                         <label>Produtos:</label>
+                        <input style="margin-bottom: 15px" placeholder="Busque um produto..." type="text" class="form-control" id="pesquisa" onkeyup="pesquisar()">
                         <div class="listaProduto busca">
-                            <?php foreach ($produtos as $produto):?>
-                                <div class="lProduto" pid="<?php echo $produto['id'] ?>">
-                                    <span id="nome"><?php echo $produto['nome'] ?></span>
-                                    <span id="preco">R$ <?php echo str_replace(".", ",", $produto['preco'])?></span>
-                                    <a class="btn btn-success add">+</a>
-                                </div>
-                            <?php endforeach;?>
+
                         </div>
                     </td>
                     <td>
                         <label><strong>Total: R$ <span id="total">0.00</span></strong></label>
-                        <div class="listaProduto carrinho">
+                        <div class="listaProduto carrinho" style="height: 350px;">
                             <?php foreach ($venda['lista'] as $prod):?>
                                 <div class="lProduto" pid="<?=$prod['id_produto'];?>">
                                     <span id="nome"><?=$venda['prod_obj'][$prod['id_produto']]['nome'];?></span>
@@ -68,6 +63,40 @@
     </form>
 </div>
 <script>
+window.onload = function () {
+    inserirProdutos();
+}
+
+var ListaDeProdutos = <?php echo json_encode($produtos) ?>;
+
+function inserirProdutos(){
+    for(i = 0; i < ListaDeProdutos.length; i++){
+        $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
+            "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
+            "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+            "<a class='btn btn-success add'>+</a>" +
+            "</div>");
+    }
+}
+
+function pesquisar(){
+    if($("#pesquisa").val() == ''){
+        $(".busca").html('');
+        inserirProdutos();
+    }else{
+        $(".busca").html('');
+        var termoBuscado = $("#pesquisa").val().toLowerCase();
+        for(i = 0; i < ListaDeProdutos.length; i++){
+            if(ListaDeProdutos[i].nome.toLowerCase().search(termoBuscado) != -1){
+                $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
+                    "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
+                    "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+                    "<a class='btn btn-success add'>+</a>" +
+                    "</div>");
+            }
+        }
+    }
+}
 
 var options =  {
     onChange: function(cep){
