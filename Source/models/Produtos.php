@@ -40,17 +40,13 @@ class Produtos extends model{
      *
      * @param   $termo  string researched
      *
-     * @return  string json containing all data retrieved.
+     * @return  array containing all data retrieved.
      */
     public function pesquisarProduto($termo){
         $sql = "SELECT * FROM produtos WHERE nome LIKE ? AND status_interno = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array("%".strtolower($termo)."%", 1));
-        $encode = "";
-        while ($row = $sql->fetchAll()) {
-            $encode = $row;
-        }
-        return json_encode($encode);
+        return $sql->fetchAll();
     }
     
     

@@ -102,4 +102,18 @@ class Clientes extends model{
         $sql = $sql->fetchAll();
         return $sql;
     }
+
+    /**
+     * This function retrieves all data from all clients found.
+     *
+     * @param   $termo  string researched
+     *
+     * @return  array containing all data retrieved.
+     */
+    public function pesquisarCliente($termo){
+        $sql = "SELECT * FROM clientes WHERE nome LIKE ? OR email LIKE ? AND status_interno = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array("%".strtolower($termo)."%", "%".strtolower($termo)."%", 1));
+        return $sql->fetchAll();
+    }
 }

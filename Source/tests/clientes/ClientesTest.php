@@ -54,6 +54,27 @@ final class ClientesTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals(1, $result[0]['status_interno']);
     }
 
+    public function testPesquisarCliente(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+        $c = new Clientes();
+        $termo = "Teste";
+        $result = $c->pesquisarCliente($termo);
+        $this->assertEquals('Nome Teste', $result[0]['nome']);
+        $this->assertEquals('000.111.222-33', $result[0]['cpf_cnpj']);
+        $this->assertEquals('Rua dos testes N 999', $result[0]['endereco']);
+        $this->assertEquals('Setor dos testes', $result[0]['bairro']);
+        $this->assertEquals('99999-999', $result[0]['cep']);
+        $this->assertEquals('Testolandia', $result[0]['cidade']);
+        $this->assertEquals('Goias', $result[0]['estado']);
+        $this->assertEquals('PF', $result[0]['tipo_pessoa']);
+        $this->assertEquals('(62) 3344-5566', $result[0]['telefone']);
+        $this->assertEquals('(62) 98877-6655', $result[0]['celular']);
+        $this->assertEquals('teste@adm.com.br', $result[0]['email']);
+        $this->assertEquals(1, $result[0]['status_interno']);
+    }
+
     public function testCadastrarCliente(){
         $conn = $this->getConnection()->getConnection();
 

@@ -77,6 +77,19 @@ class Pedidos extends model{
         return $result;
     }
 
+    /**
+     * This function retrieves all data from all orders found.
+     *
+     * @param   $termo  string researched
+     *
+     * @return  array containing all data retrieved.
+     */
+    public function pesquisarPedido($termo){
+        $sql = "SELECT * FROM vendas LEFT JOIN clientes ON clientes.id = vendas.id_cliente WHERE nome LIKE ? OR id LIKE ? AND status = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->execute(array("%".strtolower($termo)."%", "%".strtolower($termo)."%", 1));
+        return $sql->fetchAll();
+    }
 
     /**
      * This function register an order.

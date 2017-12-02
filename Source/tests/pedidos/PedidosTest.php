@@ -97,6 +97,28 @@ final class PedidosTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals($quantidade[0], $result['quantidade']);
     }
 
+    public function testPesquisarPedido(){
+        $conn = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $conn;
+        $p = new Pedidos();
+        $termo = "Teste";
+        $result = $p->pesquisarPedido($termo);
+        $this->assertEquals('Nome Teste', $result[0]['nome']);
+        $this->assertEquals('000.111.222-33', $result[0]['cpf_cnpj']);
+        $this->assertEquals('Rua dos testes N 999', $result[0]['endereco']);
+        $this->assertEquals('Setor dos testes', $result[0]['bairro']);
+        $this->assertEquals('99999-999', $result[0]['cep']);
+        $this->assertEquals('Testolandia', $result[0]['cidade']);
+        $this->assertEquals('Goias', $result[0]['estado']);
+        $this->assertEquals('PF', $result[0]['tipo_pessoa']);
+        $this->assertEquals('(62) 3344-5566', $result[0]['telefone']);
+        $this->assertEquals('(62) 98877-6655', $result[0]['celular']);
+        $this->assertEquals('teste@adm.com.br', $result[0]['email']);
+        $this->assertEquals('2017-11-05 15:39:18', $result[0]['data_venda']);
+        $this->assertEquals(41, $result[0]['total']);
+    }
+
     public function testExcluirPedido(){
         $conn = $this->getConnection()->getConnection();
 
