@@ -11,25 +11,7 @@ class pedidosController extends controller{
      * This function verifies if the user is logged in.
      * If so, it shows a list of all orders.
      */
-    public function index(){
-        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
-            header('Location:'.BASE_URL."/login");
-        }
-        $u = new Usuarios();
-        $p = new Pedidos();
-        $pedidos = $p->getPedidos();
-        $dados = $u->getDados($_SESSION['cLogin']);
-        $dados = array(
-            'titulo' => 'Pedidos',
-            'nome' => $dados['nome'],
-            'pedidos' => $pedidos,
-            'termo' => ''
-        );
-        $this->loadTemplate('pedidos', $dados);
-    }
-
-
-   public function busca(){
+   public function index(){
        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
            header('Location:'.BASE_URL."/login");
        }

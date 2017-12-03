@@ -11,21 +11,29 @@ class produtosController extends controller{
      * This function verifies if the user is logged in.
      * If so, it shows a list of registered products.
      */
-    public function index(){
-        if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
-            header('Location:'.BASE_URL."/login");
-        }
-        $u = new Usuarios();
-        $p = new Produtos();
-        $produtos = $p->getProdutos();
-        $dados = $u->getDados($_SESSION['cLogin']);
-        $dados = array(
-            'titulo' => 'Produtos',
-            'nome' => $dados['nome'],
-            'produtos' => $produtos
-        );
-        $this->loadTemplate('produtos', $dados);
-    }
+     public function index(){
+         if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+             header('Location:'.BASE_URL."/login");
+         }
+         $u = new Usuarios();
+         $p = new Produtos();
+         $termo = "";
+          if (isset($_POST['busca'])){
+             $termo = $_POST['busca'];
+             $produtos = $p->pesquisarProduto(addslashes($_POST['busca']));
+          } else {
+              $produtos = $p->getProdutos();
+          }
+         $dados = $u->getDados($_SESSION['cLogin']);
+         $dados = array(
+             'titulo' => 'Produtos',
+             'nome' => $dados['nome'],
+             'produtos' => $produtos,
+             'termo' => $termo
+         );
+         $this->loadTemplate('produtos', $dados);
+     }
+
 
     /**
      * This function verifies if the user is logged in.

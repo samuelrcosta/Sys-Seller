@@ -1,5 +1,5 @@
 <div class="Container">
-    <form method="POST" action="<?php echo BASE_URL ?>/pedidos/busca">
+    <form method="POST" action="<?php echo BASE_URL ?>/pedidos">
         <input style="margin: 5px" placeholder="Busque um pedido..." type="text" class="form-control" id="busca" name="busca" value="<?=$termo;?>">
     </form>
     <a style="margin-top: 20px;margin-bottom: 20px; float: right;" class="btn btn-success" href='<?php echo BASE_URL ?>/pedidos/novo/'>Novo Pedido</a>
