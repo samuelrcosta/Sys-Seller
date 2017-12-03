@@ -38,4 +38,36 @@
             <value>Exclusão do cliente: Nome Teste</value>
         </row>
     </table>
+    <table name="log_link">
+        <column>id</column>
+        <column>data</column>
+        <column>ip</column>
+        <column>link</column>
+        <column>req</column>
+        <column>hora</column>
+    </table>
+    <table name="log_dia">
+        <column>id</column>
+        <column>data</column>
+        <column>acesso</column>
+        <column>unico</column>
+    </table>
+    <table name="log_mes">
+        <column>id</column>
+        <column>data</column>
+        <column>acesso</column>
+        <column>unico</column>
+    </table>
+    <table name="log_unico_dia">
+        <column>id</column>
+        <column>ip</column>
+        <column>data</column>
+        <column>contador</column>
+    </table>
+    <table name="log_unico_mes">
+        <column>id</column>
+        <column>ip</column>
+        <column>data</column>
+        <column>contador</column>
+    </table>
 </dataset>
