@@ -35,4 +35,25 @@ class Logs extends model{
         $sql->execute();
         return $sql->fetchAll();
     }
+
+    public function getLogDay(){
+        $sql = "SELECT * FROM log_dia ORDER BY id DESC LIMIT 5";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public function getLogMonth(){
+        $sql = "SELECT * FROM log_mes ORDER BY id DESC LIMIT 5";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public function getLogAcesso(){
+        $sql = "SELECT * FROM log_link ORDER BY id DESC LIMIT 50";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
 }

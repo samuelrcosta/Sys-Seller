@@ -5,6 +5,7 @@
 </style>
 <div class="Container">
     <h1 style="margin-top: 20px; margin-bottom: 20px">Logs do Sistema</h1>
+    <a style="margin-top: -40px;margin-bottom: 20px; float: right;" class="btn btn-success" href='<?php echo BASE_URL ?>/logs/acesso'>Logs de Acesso</a>
     <table class="table table-bordered table-tripped table-responsive table-sm">
         <thead>
         <tr>
