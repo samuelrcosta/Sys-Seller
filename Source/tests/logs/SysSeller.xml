@@ -45,6 +45,14 @@
         <column>link</column>
         <column>req</column>
         <column>hora</column>
+        <row>
+            <value>1</value>
+            <value>2017-11-26</value>
+            <value>::1</value>
+            <value>http://localhost/</value>
+            <value>url=logs</value>
+            <value>2017-11-26 15:00:00</value>
+        </row>
     </table>
     <table name="log_dia">
         <column>id</column>

@@ -14,13 +14,13 @@ final class LogsTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $db;
         $l = new Logs();
 
-        $logs = count($l->getLogAcesso());
-        $this->assertEquals(0, $logs);
-
-        require(__DIR__.'/../../logging.php');
-
-        $logs = count($l->getLogAcesso());
-        $this->assertGreaterThan(0, $logs);
+        $log = $l->getLogAcesso()[0];
+        $this->assertEquals(1, $log['id']);
+        $this->assertEquals("2017-11-26", $log['data']);
+        $this->assertEquals("::1", $log['ip']);
+        $this->assertEquals("http://localhost/", $log['link']);
+        $this->assertEquals("url=logs", $log['req']);
+        $this->assertEquals("2017-11-26 15:00:00", $log['hora']);
     }
 
     public function testGetLogs(){
