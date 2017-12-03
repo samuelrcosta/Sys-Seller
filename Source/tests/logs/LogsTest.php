@@ -84,6 +84,13 @@ final class LogsTest extends PHPUnit_Extensions_Database_TestCase{
             $db = new PDO('sqlite::sysseller:');
             $db->exec('CREATE TABLE `usuarios` (`id` int(11) NOT NULL, `nome` varchar(150) NOT NULL, `email` varchar(150) NOT NULL, `senha` varchar(150) NOT NULL)');
             $db->exec('CREATE TABLE `logs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `id_registro` int(11) NOT NULL, `data_ocorrencia` datetime NOT NULL, `severidade` int(11) NOT NULL, `id_usuario` int(11) NOT NULL, `resultado` varchar(200) NOT NULL, `descricao` text NOT NULL)');
+
+            $db->exec('CREATE TABLE `log_link` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `data` varchar(50) NOT NULL, `ip` varchar(50) NOT NULL, `link` varchar(50) DEFAULT NULL, `req` varchar(50) DEFAULT NULL, `hora` datetime NOT NULL)');
+            $db->exec('CREATE TABLE `log_dia` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `data` varchar(50) NOT NULL, `acesso` int(11) NOT NULL, `unico` int(11) NOT NULL)');
+            $db->exec('CREATE TABLE `log_mes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `data` varchar(50) NOT NULL, `acesso` int(11) NOT NULL, `unico` int(11) NOT NULL)');
+            $db->exec('CREATE TABLE `log_unico_dia` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `ip` varchar(50) NOT NULL, `data` varchar(50) NOT NULL, `contador` int(11) NOT NULL)');
+            $db->exec('CREATE TABLE `log_unico_mes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `ip` varchar(50) NOT NULL, `data` varchar(50) NOT NULL, `contador` int(11) NOT NULL)');
+
             $this->conn =  $this->createDefaultDBConnection($db, ':sysseller:');
         }
 
