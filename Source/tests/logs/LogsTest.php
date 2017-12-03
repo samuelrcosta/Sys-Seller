@@ -8,6 +8,18 @@ final class LogsTest extends PHPUnit_Extensions_Database_TestCase{
 
     private $conn = null;
 
+    public function testAcesso(){
+        $db = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $db;
+        $l = new Logs();
+
+        require('../../logging.php');
+
+        $logs = count($l->getLogAcesso());
+        $this->assertGreaterThan(0, $logs);
+    }
+
     public function testGetLogs(){
         $conn = $this->getConnection()->getConnection();
 
