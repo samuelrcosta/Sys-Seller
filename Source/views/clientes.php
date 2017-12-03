@@ -1,4 +1,7 @@
 <div class="Container">
+    <form method="POST" action="<?php echo BASE_URL ?>/clientes">
+        <input style="margin: 5px" placeholder="Busque um cliente..." type="text" class="form-control" id="busca" name="busca" value="<?=$termo;?>">
+    </form>
     <a style="margin-top: 20px;margin-bottom: 20px; float: right;" class="btn btn-success" href='<?php echo BASE_URL ?>/clientes/cadastrar/'>Cadastrar Cliente</a>
     <table class="table table-bordered table-tripped">
         <thead>

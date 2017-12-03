@@ -17,12 +17,19 @@ class clientesController extends controller {
         }
         $u = new Usuarios();
         $c = new Clientes();
-        $clientes = $c->getClientes();
+        $termo = "";
+         if (isset($_POST['busca'])){
+            $termo = $_POST['busca'];
+            $clientes = $c->pesquisarCliente(addslashes($_POST['busca']));
+         } else {
+             $clientes = $c->getClientes();
+         }
         $dados = $u->getDados($_SESSION['cLogin']);
         $dados = array(
             'titulo' => 'Clientes',
             'nome' => $dados['nome'],
-            'clientes' => $clientes
+            'clientes' => $clientes,
+            'termo' => $termo
         );
         $this->loadTemplate('clientes', $dados);
     }
