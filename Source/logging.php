@@ -1,6 +1,6 @@
 <?php
 
-    $ip = $_SERVER['REMOTE_ADDR'];
+    $ip = isset($_SERVER['REMOTE_ADDR'])?$_SERVER['REMOTE_ADDR']:'noip';
     $offset = -3 * 60 * 60;
     $time = time() + $offset;
     $day = date("Y-m-d", $time);

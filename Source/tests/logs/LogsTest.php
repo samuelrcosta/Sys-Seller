@@ -14,6 +14,9 @@ final class LogsTest extends PHPUnit_Extensions_Database_TestCase{
         $GLOBALS['db'] = $db;
         $l = new Logs();
 
+        $logs = count($l->getLogAcesso());
+        $this->assertEquals(0, $logs);
+
         require(__DIR__.'/../../logging.php');
 
         $logs = count($l->getLogAcesso());
