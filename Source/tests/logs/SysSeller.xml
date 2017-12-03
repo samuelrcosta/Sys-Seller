@@ -59,12 +59,36 @@
         <column>data</column>
         <column>acesso</column>
         <column>unico</column>
+        <row>
+            <value>1</value>
+            <value>2017-11-26</value>
+            <value>10</value>
+            <value>2</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>2017-11-28</value>
+            <value>8</value>
+            <value>3</value>
+        </row>
     </table>
     <table name="log_mes">
         <column>id</column>
         <column>data</column>
         <column>acesso</column>
         <column>unico</column>
+        <row>
+            <value>1</value>
+            <value>2017-10</value>
+            <value>18</value>
+            <value>5</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>2017-11</value>
+            <value>87</value>
+            <value>32</value>
+        </row>
     </table>
     <table name="log_unico_dia">
         <column>id</column>

@@ -23,6 +23,44 @@ final class LogsTest extends PHPUnit_Extensions_Database_TestCase{
         $this->assertEquals("2017-11-26 15:00:00", $log['hora']);
     }
 
+    public function testLogDay(){
+        $db = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $db;
+        $l = new Logs();
+
+        $log = $l->getLogDay()[0];
+        $this->assertEquals(1, $log['id']);
+        $this->assertEquals("2017-11-26", $log['data']);
+        $this->assertEquals("10", $log['acesso']);
+        $this->assertEquals("2", $log['unico']);
+
+        $log = $l->getLogDay()[1];
+        $this->assertEquals(2, $log['id']);
+        $this->assertEquals("2017-11-28", $log['data']);
+        $this->assertEquals("8", $log['acesso']);
+        $this->assertEquals("3", $log['unico']);
+    }
+
+    public function testLogMonth(){
+        $db = $this->getConnection()->getConnection();
+
+        $GLOBALS['db'] = $db;
+        $l = new Logs();
+
+        $log = $l->getLogMonth()[0];
+        $this->assertEquals(1, $log['id']);
+        $this->assertEquals("2017-10", $log['data']);
+        $this->assertEquals("18", $log['acesso']);
+        $this->assertEquals("5", $log['unico']);
+
+        $log = $l->getLogMonth()[1];
+        $this->assertEquals(2, $log['id']);
+        $this->assertEquals("2017-11", $log['data']);
+        $this->assertEquals("87", $log['acesso']);
+        $this->assertEquals("32", $log['unico']);
+    }
+
     public function testGetLogs(){
         $conn = $this->getConnection()->getConnection();
 
