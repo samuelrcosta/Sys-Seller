@@ -85,10 +85,32 @@ class Pedidos extends model{
      * @return  array containing all data retrieved.
      */
     public function pesquisarPedido($termo){
-        $sql = "SELECT * FROM vendas LEFT JOIN clientes ON clientes.id = vendas.id_cliente WHERE nome LIKE ? OR vendas.id LIKE ? AND status = ?";
+        $sql = "SELECT *,vendas.id as id FROM vendas LEFT JOIN clientes ON clientes.id = vendas.id_cliente WHERE nome LIKE ? OR vendas.id LIKE ? AND status = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array("%".strtolower($termo)."%", "%".strtolower($termo)."%", 1));
-        return $sql->fetchAll();
+            $result = array();
+
+        foreach ($sql->fetchAll() as $row){
+            $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($row['id']));
+            $row['lista'] = $sql->fetchAll();
+
+            $sql = "SELECT * FROM vendas_produtos WHERE id_venda = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array($row['id']));
+            $row['produtos'] = 0;
+            foreach($sql->fetchAll() as $prod){
+                $row['produtos'] += $prod['quantidade'];
+            }
+
+            $c = new Clientes();
+            $cliente = $c->getCliente($row['id_cliente']);
+            $row['cliente'] = $cliente['nome'];
+
+            $result[] = $row;
+        }
+        return $result;
     }
 
     /**

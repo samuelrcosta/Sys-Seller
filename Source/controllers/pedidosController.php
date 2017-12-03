@@ -22,10 +22,35 @@ class pedidosController extends controller{
         $dados = array(
             'titulo' => 'Pedidos',
             'nome' => $dados['nome'],
-            'pedidos' => $pedidos
+            'pedidos' => $pedidos,
+            'termo' => ''
         );
         $this->loadTemplate('pedidos', $dados);
     }
+
+
+   public function busca(){
+       if(!isset($_SESSION['cLogin']) || empty($_SESSION['cLogin'])){
+           header('Location:'.BASE_URL."/login");
+       }
+       $u = new Usuarios();
+       $p = new Pedidos();
+       $termo = "";
+        if (isset($_POST['busca'])){
+           $termo = $_POST['busca'];
+           $pedidos = $p->pesquisarPedido(addslashes($_POST['busca']));
+        } else {
+            $pedidos = $p->getPedidos();
+        }
+       $dados = $u->getDados($_SESSION['cLogin']);
+       $dados = array(
+           'titulo' => 'Pedidos',
+           'nome' => $dados['nome'],
+           'pedidos' => $pedidos,
+           'termo' => $termo
+       );
+       $this->loadTemplate('pedidos', $dados);
+   }
 
     /**
      * This function verifies if the user is logged in.
