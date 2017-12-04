@@ -1,7 +1,7 @@
 # Diagrama de Classes
 
 O diagrama de classes do sistema Sys-Seller está representado abaixo:
-![diagrama de classes](https://user-images.githubusercontent.com/19656573/33002526-e7b1cef4-cd9b-11e7-80d8-fda82874cf5f.jpg)
+![diagrama de classes](https://user-images.githubusercontent.com/19656573/33562553-b37121e6-d8fc-11e7-9c75-422e28dd5469.jpg)
 
 **Usuário Administrador:**  
 Nome: Administrador  
