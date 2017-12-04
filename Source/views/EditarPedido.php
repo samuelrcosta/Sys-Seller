@@ -37,7 +37,7 @@
                             <?php foreach ($venda['lista'] as $prod):?>
                                 <div class="lProduto" pid="<?=$prod['id_produto'];?>">
                                     <span id="nome"><?=$venda['prod_obj'][$prod['id_produto']]['nome'];?></span>
-                                    <span id="preco">R$ <?=$venda['prod_obj'][$prod['id_produto']]['preco'];?></span>
+                                    <span id="preco">R$ <?=number_format($venda['prod_obj'][$prod['id_produto']]['preco'], 2);?></span>
                                     <input type="text" id="quant" value="<?=$prod['quantidade'];?>" />
                                     <a class="btn btn-danger rem" href="">-</a>
                                 </div>
@@ -73,7 +73,7 @@ function inserirProdutos(){
     for(i = 0; i < ListaDeProdutos.length; i++){
         $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
             "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
-            "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+            "<span id='preco'>R$ " + Number(ListaDeProdutos[i].preco).toFixed(2) + "</span>" +
             "<a class='btn btn-success add'>+</a>" +
             "</div>");
     }
@@ -90,7 +90,7 @@ function pesquisar(){
             if(ListaDeProdutos[i].nome.toLowerCase().search(termoBuscado) != -1){
                 $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
                     "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
-                    "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+                    "<span id='preco'>R$ " + Number(ListaDeProdutos[i].preco).toFixed(2) + "</span>" +
                     "<a class='btn btn-success add'>+</a>" +
                     "</div>");
             }
@@ -118,7 +118,7 @@ var options =  {
         });
 
         $("#lista").val(JSON.stringify(lista));
-        $("span#total").html(total);
+        $("span#total").html(total.toFixed(2));
     }
 
     $(function () {

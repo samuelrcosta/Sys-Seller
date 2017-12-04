@@ -20,9 +20,11 @@ class loginController extends controller{
             $email = addslashes($_POST['email']);
             $senha = addslashes($_POST['senha']);
 
-            if($u->login($email, $senha)){
+            if($u->login($email, $senha) != -1){
                 header('Location:'.BASE_URL.'/pedidos');
             }else{
+                $dados['emailPreench'] = $email;
+                $dados['senhaPreench'] = $senha;
                 $dados['aviso'] = 'Usuário e/ou senha inválidos.';
             }
         }

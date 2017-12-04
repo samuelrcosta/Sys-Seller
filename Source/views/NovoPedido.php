@@ -65,7 +65,7 @@ function inserirProdutos(){
     for(i = 0; i < ListaDeProdutos.length; i++){
         $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
             "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
-            "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+            "<span id='preco'>R$ " + Number(ListaDeProdutos[i].preco).toFixed(2) + "</span>" +
             "<a class='btn btn-success add'>+</a>" +
             "</div>");
     }
@@ -82,7 +82,7 @@ function pesquisar(){
             if(ListaDeProdutos[i].nome.toLowerCase().search(termoBuscado) != -1){
                 $(".busca").append("<div class='lProduto' pid='"+ ListaDeProdutos[i].id + "'> " +
                     "<span id='nome'>" + ListaDeProdutos[i].nome + "</span>" +
-                    "<span id='preco'>R$ " + ListaDeProdutos[i].preco + "</span>" +
+                    "<span id='preco'>R$ " + Number(ListaDeProdutos[i].preco).toFixed(2) + "</span>" +
                     "<a class='btn btn-success add'>+</a>" +
                     "</div>");
             }
@@ -110,7 +110,7 @@ var options =  {
         });
 
         $("#lista").val(JSON.stringify(lista));
-        $("span#total").html(total);
+        $("span#total").html(total.toFixed(2));
     }
 
     $(function () {

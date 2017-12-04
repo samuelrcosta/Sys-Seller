@@ -1,8 +1,13 @@
 <div class="Container">
-    <form method="POST" action="<?php echo BASE_URL ?>/produtos">
-        <input style="margin: 5px" placeholder="Busque um produto..." type="text" class="form-control" id="busca" name="busca" value="<?=$termo;?>">
-    </form>
     <a style="margin-top: 20px;margin-bottom: 20px; float: right;" class="btn btn-success" href='<?php echo BASE_URL ?>/produtos/cadastrar/'>Cadastrar Produto</a>
+    <form method="POST" action="<?php echo BASE_URL ?>/produtos">
+        <div class="input-group">
+            <input type="text" class="form-control" id="busca" name="busca" value="<?=$termo;?>" placeholder="Busque um produto...">
+            <span class="input-group-btn">
+                <input type="submit" value="Buscar" class="btn btn-secondary">
+            </span>
+        </div>
+    </form>
     <table class="table table-bordered table-tripped">
         <thead>
             <tr>
