@@ -111,7 +111,7 @@ class Clientes extends model{
      * @return  array containing all data retrieved.
      */
     public function pesquisarCliente($termo){
-        $sql = "SELECT * FROM clientes WHERE nome LIKE ? OR email LIKE ? AND status_interno = ?";
+        $sql = "SELECT * FROM clientes WHERE (nome LIKE ? OR email LIKE ?) AND status_interno = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array("%".strtolower($termo)."%", "%".strtolower($termo)."%", 1));
         return $sql->fetchAll();

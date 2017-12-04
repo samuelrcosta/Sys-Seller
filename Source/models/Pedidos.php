@@ -85,7 +85,7 @@ class Pedidos extends model{
      * @return  array containing all data retrieved.
      */
     public function pesquisarPedido($termo){
-        $sql = "SELECT *,vendas.id as id FROM vendas LEFT JOIN clientes ON clientes.id = vendas.id_cliente WHERE nome LIKE ? OR vendas.id LIKE ? AND status = ?";
+        $sql = "SELECT *,vendas.id as id FROM vendas LEFT JOIN clientes ON clientes.id = vendas.id_cliente WHERE (nome LIKE ? OR vendas.id LIKE ?) AND status = ?";
         $sql = $this->db->prepare($sql);
         $sql->execute(array("%".strtolower($termo)."%", "%".strtolower($termo)."%", 1));
             $result = array();
